@@ -1,0 +1,15 @@
+<svg width="71" height="56" viewBox="0 0 71 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 4">
+<g id="color">
+<path id="Vector" d="M65.6392 0.840942H4.54626C2.33713 0.840942 0.546265 2.63181 0.546265 4.84095V51.8849C0.546265 54.0941 2.33712 55.8849 4.54626 55.8849H65.6392C67.8483 55.8849 69.6392 54.0941 69.6392 51.8849V4.84094C69.6392 2.6318 67.8483 0.840942 65.6392 0.840942Z" fill="#D9D9D9"/>
+</g>
+<g id="line">
+<path id="Vector_2" d="M7.90977 1.38818V7.43381H0.546265H69.6392" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="inside">
+<path id="bracket right" d="M43.6033 39.7655L53.1756 30.1932M43.6033 20.5275L53.1756 30.0997" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="slash" d="M38.1101 17.5188L30.6826 42.5273" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="bracket-left" d="M25.1893 20.6174L15.6171 30.1897M25.1893 39.8558L15.6171 30.2836" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>
