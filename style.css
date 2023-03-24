@@ -843,6 +843,16 @@ a {
     scale: 1.5;
 }
 
+/* YOUTUBE */
+
+.yt-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 80%;
+    max-height: 30vh;
+    max-height: 30svh;
+}
+
 /* KEYFRAMES */
 
 @keyframes hover {

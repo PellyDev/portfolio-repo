@@ -21,6 +21,7 @@ import {
     panels,
     pageNav,
 } from "./consts"
+import { getVids } from "./yt"
 
 window.scrollTo(0, 0)
 
@@ -382,8 +383,6 @@ window.addEventListener(
     { passive: false }
 )
 
-document.addEventListener("click", () => console.log("clicked"))
-
 /* window.addEventListener(
     "touchmove",
     (e) => {
@@ -412,4 +411,4 @@ window.addEventListener(
     { passive: false }
 )
 
-console.log({})
+getVids()
