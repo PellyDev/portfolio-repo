@@ -639,8 +639,11 @@ a {
 
 /* animations END */
 
-.upper p:not(:first-child) {
+.upper {
     font-size: 1.25rem;
+}
+
+.upper p:not(:first-child) {
     padding-top: 1rem;
 }
 
@@ -845,12 +848,43 @@ a {
 
 /* YOUTUBE */
 
+#youtube > .text {
+    width: 80%;
+    max-width: 1200px;
+    font-size: 1.25rem;
+}
+
 .yt-container {
     display: flex;
-    gap: 2rem;
-    max-width: 80%;
-    max-height: 30vh;
-    max-height: 30svh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.yt-container > .arrow {
+    color: var(--main-clr);
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.slider {
+    /* max scroll index so that the last 2 items are centered on screen: (numVids - 2) / 2 */
+    /* each increment of scroll index scrolls the slider container to the left by 100% */
+    --scroll-index: 0;
+    width: 77.5%;
+    display: flex;
+    padding-top: 2.5rem;
+    gap: 2.5%;
+    max-width: 77.5%;
+    translate: calc(var(--scroll-index) * -100%) 0;
+}
+
+.video-container {
+    min-width: 47.5%;
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 /* KEYFRAMES */
