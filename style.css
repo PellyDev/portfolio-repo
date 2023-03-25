@@ -878,6 +878,7 @@ a {
     gap: 2.5%;
     max-width: 77.5%;
     translate: calc(var(--scroll-index) * -100%) 0;
+    transition: translate var(--duration-l) var(--timing-bez); 
 }
 
 .video-container {
