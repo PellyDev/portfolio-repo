@@ -16,45 +16,50 @@ export const landingLogo = document.querySelector("#landing svg")
 export const navLogo = document.querySelector(".nav svg")
 
 export const main = {
-    node: document.querySelector("#main"),
-    children: [],
-    Ypos: 0,
-    hasAnimated: true,
+  node: document.querySelector("#main"),
+  children: [],
+  Ypos: 0,
+  hasAnimated: true,
 }
 export const bio = {
-    node: document.querySelector("#bio"),
-    children: [
-        document.querySelector("#bio .headline"),
-        document.querySelector(".text"),
-        document.querySelector(".upper img"),
-        document.querySelector(".lower"),
-        document.querySelector("#bio .headline img"),
-    ],
-    Ypos: 0,
-    hasAnimated: false,
+  node: document.querySelector("#bio"),
+  children: [
+    document.querySelector("#bio .headline"),
+    document.querySelector("#bio .text"),
+    document.querySelector("#bio .upper img"),
+    document.querySelector("#bio .lower"),
+    document.querySelector("#bio .headline img"),
+  ],
+  Ypos: 0,
+  hasAnimated: false,
 }
 export const projects = {
-    node: document.querySelector("#projects"),
-    children: [
-        document.querySelector("#projects .project-container.right"),
-        document.querySelector("#projects .project-container.left"),
-    ],
-    Ypos: 0,
-    hasAnimated: false,
+  node: document.querySelector("#projects"),
+  children: [
+    document.querySelector("#projects .project-container.right"),
+    document.querySelector("#projects .project-container.left"),
+    document.querySelector("#projects .headline"),
+  ],
+  Ypos: 0,
+  hasAnimated: false,
 }
 export const youtube = {
-    node: document.querySelector("#youtube"),
-    children: [],
-    Ypos: 0,
-    hasAnimated: false,
+  node: document.querySelector("#youtube"),
+  children: [
+    document.querySelector("#youtube .headline"),
+    document.querySelector("#youtube .text"),
+    document.querySelector("#youtube .yt-container"),
+  ],
+  Ypos: 0,
+  hasAnimated: false,
 }
 
 export const panels = [main, bio, projects, youtube]
 
 export const pageNav = {
-    node: document.querySelector(".fixed.page-nav"),
-    children: [],
-    svg: `<svg
+  node: document.querySelector(".fixed.page-nav"),
+  children: [],
+  svg: `<svg
     width="18"
     height="18"
     viewBox="0 0 18 18"
