@@ -4,7 +4,7 @@ const WATCH_BASE_URL = "https://www.youtube.com/watch?v="
 const API_BASE_URL =
   "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=UUi7SpBeS4FXazpYJOmxGAeg&key="
 const API_KEY = "AIzaSyBOMHDByZ065Tq8OUJSL55FOQEqZz2vQZ8"
-// --stagger-duration
+// --stagger-duration; increase duration with each video container
 const STAGGER_DURATION = 238.74
 let staggerFactor = 3
 
@@ -28,11 +28,15 @@ export function generateVids(json) {
     const { title, description, publishedAt: date } = vid.snippet
     const { url: thumnbnail } = vid.snippet.thumbnails.maxres
     const { videoId } = vid.snippet.resourceId
-
+    const dateFormatted = new Intl.DateTimeFormat("de-DE").format(
+      new Date(date.substring(0, 10))
+    )
     const el = template.content.cloneNode(true)
     const elRoot = el.querySelector(".video-container")
     elRoot.querySelector("img").src = thumnbnail
     elRoot.querySelector("a").href = WATCH_BASE_URL + videoId
+    elRoot.querySelector(".title").innerText = title
+    elRoot.querySelector(".date").innerText = "Released: " + dateFormatted
     elRoot.classList.add("inactive")
     elRoot.style.setProperty(
       "transition-delay",
