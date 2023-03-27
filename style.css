@@ -51,10 +51,9 @@ ________________________________________________________________________________
 */
 
 :root {
-    font-size: 16px;
     --main-clr: rgba(225, 217, 206, 1);
     --main-clr-900: rgba(225, 217, 206, 0.9);
-    --main-font-size: 4rem;
+    --menu-font-size: 4.5rem;
     --bg-clr: rgba(0, 0, 0, 0.95);
     --border-100: rgba(255, 255, 255, 0.1);
     --border-250: rgba(255, 255, 255, 0.25);
@@ -147,11 +146,11 @@ a {
     height: 100px;
     position: fixed;
     display: flex;
+    left: 0;
+    right: 0;
     padding: 2rem 2rem;
     justify-content: space-between;
     align-items: center;
-    opacity: 0.25;
-    scale: 0.95;
     z-index: 1;
     transition: opacity var(--duration-l) ease-in-out,
         scale var(--duration-l) ease-in-out,
@@ -201,12 +200,10 @@ a {
     position: relative;
     width: 100%;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    opacity: 0.5;
-    scale: 0.95;
     transition: opacity var(--duration-l) ease-in-out,
         scale var(--duration-l) ease-in-out;
 }
@@ -224,18 +221,12 @@ a {
     user-select: none;
     display: flex;
     flex-direction: column;
-    font-size: var(--main-font-size);
+    font-size: var(--menu-font-size);
     line-height: 100%;
     color: var(--main-clr);
     letter-spacing: 5px;
     margin-top: 15vh;
     margin-top: 15svh;
-}
-
-.decoration {
-    position: absolute;
-    min-width: 2.5rem;
-    min-height: 2.5rem;
 }
 
 .top-right {
@@ -265,8 +256,8 @@ a {
 
 .cluster {
     border-bottom: solid 1px var(--border-100);
-    padding-top: calc(var(--main-font-size) * 0.6666);
-    padding-bottom: calc(var(--main-font-size) * 0.4444);
+    padding-top: calc(var(--menu-font-size) * 0.6666);
+    padding-bottom: calc(var(--menu-font-size) * 0.4444);
     translate: -20% 0;
     opacity: 0%;
     transition: opacity var(--duration-m) var(--timing-bez),
@@ -373,7 +364,7 @@ a {
 
 .scroll-CTA {
     position: relative;
-    width: 25%;
+    width: 100%;
     min-height: 17.5%;
     padding-top: 5%;
     color: var(--main-clr);
@@ -443,7 +434,6 @@ a {
 }
 
 .fixed.right {
-    translate: 0 324px;
     opacity: 0;
 }
 
@@ -875,7 +865,7 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 2.5rem;
+    margin-top: 3%;
     transition: all var(--duration-l) calc(var(--stagger-duration) * 2)
         var(--timing-bez);
 }
@@ -908,7 +898,8 @@ a {
     z-index: 1;
     opacity: 0%;
     background-color: rgba(0, 0, 0, 0.5);
-    transition: opacity var(--duration-m) var(--timing-bez);
+    backdrop-filter: blur(0.5rem);
+    transition: all var(--duration-m) var(--timing-bez);
 }
 
 .yt-container:hover .container-overlay {
@@ -1065,8 +1056,30 @@ a {
 
 /* MEDIA QUERIES */
 
-@media screen and (min-height: 1100px) {
+@media screen and (max-height: 1100px) {
     :root {
-        --main-font-size: 4.5rem;
+        --menu-font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .yt-container {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    :root {
+        --menu-font-size: 2rem;
+    }
+
+    .nav {
+        width: 100%;
+        height: 50px;
+        padding: 1rem 0.5rem;
+    }
+
+    .nav-items {
+        gap: 0;
     }
 }

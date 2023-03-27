@@ -121,10 +121,6 @@ checkStyleState(document.querySelector(".j-left"), "fill-opacity", "1", () => {
         // "pull up curtain" and start animating main page content
         landing.style.setProperty("height", "0%")
         landingLogo.style.setProperty("opacity", "0%")
-        nav.style.setProperty("opacity", "1")
-        nav.style.setProperty("scale", "1")
-        main.node.style.setProperty("opacity", "1")
-        main.node.style.setProperty("scale", "1")
         setTimeout(() => {
             // stagger the menu lines
             let lineCounter = 0
@@ -386,14 +382,6 @@ window.addEventListener(
     },
     { passive: false }
 )
-
-/* window.addEventListener(
-    "touchmove",
-    (e) => {
-        e.preventDefault()
-    },
-    { passive: false }
-) */
 
 window.addEventListener(
     "touchend",
