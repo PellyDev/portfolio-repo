@@ -875,6 +875,7 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-top: 2.5rem;
     transition: all var(--duration-l) calc(var(--stagger-duration) * 2)
         var(--timing-bez);
 }
@@ -883,30 +884,64 @@ a {
     opacity: 0;
 }
 
-.yt-container > .arrow {
+.yt-container .arrow {
     color: var(--main-clr);
-    width: 3rem;
+    min-width: 3rem;
     aspect-ratio: 1 / 1;
     z-index: 2;
     cursor: pointer;
+    transition: all var(--duration-s) ease-in-out;
+}
+
+.yt-container .arrow:hover {
+    filter: brightness(0.9);
+    scale: 1.25;
+}
+
+.container-overlay {
+    display: grid;
+    place-content: center;
+    min-width: calc(
+        10% - (80% * 0.025)
+    ); /* 10% space on each side of the slider; the gap between each item is 2.5% of the slider width (which is 80% of total vp) */
+    height: 100%;
+    z-index: 1;
+    opacity: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity var(--duration-m) var(--timing-bez);
+}
+
+.yt-container:hover .container-overlay {
+    opacity: 100%;
+}
+
+.container-overlay.left {
+    margin-right: auto;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.container-overlay.right {
+    margin-left: auto;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
 }
 
 .slider {
     /* max scroll index so that the last 2 items are centered on screen: (numVids - 2) / 2 */
     /* each increment of scroll index scrolls the slider container to the left by 100% */
     --scroll-index: 0;
-    width: 77.5%;
+    min-width: 80%;
     display: flex;
-    padding-top: 2.5rem;
     gap: 2.5%;
     max-width: 77.5%;
-    translate: calc(var(--scroll-index) * -100%) 0;
+    translate: calc(var(--scroll-index) * -102.5%) 0;
     transition: translate 1000ms var(--timing-bez);
 }
 
 .video-container {
     position: relative;
-    min-width: 47.5%;
+    min-width: 48.75%;
     aspect-ratio: 16 / 9;
     border-radius: 1rem;
     overflow: hidden;
@@ -937,7 +972,8 @@ a {
     line-height: 150%;
     font-size: clamp(1rem, 1.5vw, 3rem);
     opacity: 0%;
-    transition: inherit;
+    transition: opacity var(--duration-m) var(--stagger-duration)
+        var(--timing-bez);
 }
 
 .video-container .overlay .cta {
@@ -948,7 +984,17 @@ a {
     align-items: center;
     margin: auto 0;
     opacity: 0%;
-    transition: inherit;
+    transition: opacity var(--duration-m) var(--stagger-duration)
+            var(--timing-bez),
+        filter var(--duration-s) ease-in-out,
+        scale var(--duration-s) ease-in-out,
+        translate var(--duration-s) ease-in-out;
+}
+
+.video-container .overlay .cta:hover {
+    filter: brightness(0.9);
+    scale: 1.05;
+    translate: 0 -0.25rem;
 }
 
 .video-container .overlay .cta img {
@@ -959,7 +1005,8 @@ a {
 .video-container .overlay .date {
     font-size: clamp(1rem, 1.5vw, 3.5rem);
     opacity: 0%;
-    transition: inherit;
+    transition: opacity var(--duration-m) var(--stagger-duration)
+        var(--timing-bez);
 }
 
 .video-container:hover .overlay {
@@ -970,7 +1017,6 @@ a {
 .video-container:hover .overlay .cta,
 .video-container:hover .overlay .date {
     opacity: 100%;
-    transition-delay: var(--stagger-duration);
 }
 
 /* KEYFRAMES */
