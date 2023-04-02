@@ -21,8 +21,7 @@ import {
     panels,
     pageNav,
 } from "./consts"
-import { getVids, generateVids } from "./yt"
-import { placeholder } from "./placeholder"
+import { getVids } from "./yt"
 
 window.scrollTo(0, 0)
 
@@ -156,10 +155,6 @@ checkStyleState(document.querySelector(".j-left"), "fill-opacity", "1", () => {
                             setTimeout(() => {
                                 scrollCTA.style.setProperty("opacity", "1")
                                 scrollCTA.style.setProperty("scale", "1")
-                                document.body.style.setProperty(
-                                    "overflow-y",
-                                    "scroll"
-                                )
                                 // remove invisible overlay that prevents hover effects during intro animation
                                 document.querySelector(".overlay").remove()
                             }, 1250)
