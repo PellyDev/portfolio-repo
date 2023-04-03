@@ -371,6 +371,7 @@ let target // target event from touchstart so pointer/click events can fire
 window.addEventListener(
     "touchstart",
     (e) => {
+        if (e.touches.length > 1) return // enable pinch zooming
         e.preventDefault()
         if (isScrolling) return
         ts = e.touches[0]["screenY"]

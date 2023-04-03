@@ -55,7 +55,7 @@ ________________________________________________________________________________
 :root {
     --main-clr: rgba(225, 217, 206, 1);
     --main-clr-900: rgba(225, 217, 206, 0.9);
-    --menu-font-size: clamp(2rem, 3.5vw, 4rem);
+    --menu-font-size: clamp(2rem, 2vw + 2vh, 4rem);
     --bg-clr: rgba(0, 0, 0, 0.95);
     --border-100: rgba(255, 255, 255, 0.1);
     --border-250: rgba(255, 255, 255, 0.25);
@@ -402,7 +402,7 @@ section {
 }
 
 .fixed.page-nav {
-    top: 93vh;
+    top: 90vh;
     border-right: none;
     padding-right: 0;
     opacity: 0%;
