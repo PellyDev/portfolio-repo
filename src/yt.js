@@ -42,7 +42,6 @@ export function generateVids(json) {
             "transition-delay",
             `${staggerFactor * STAGGER_DURATION}ms`
         )
-        /* elRoot.style.transitionDelay = `${staggerFactor * STAGGER_DURATION}ms` */
         youtube.children.push(elRoot)
         parent.appendChild(elRoot)
         ++staggerFactor

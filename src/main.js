@@ -1,10 +1,6 @@
 import {
     menuLines,
     animatedLines,
-    main,
-    bio,
-    youtube,
-    projects,
     fixedEls,
     fixedElsLeft,
     fixedElsRight,
