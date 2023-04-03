@@ -15,6 +15,11 @@ import {
     navItemsContainer,
     scrollCTA,
     panels,
+    stack,
+    youtube,
+    projects,
+    bio,
+    main,
     pageNav,
 } from "./consts"
 import { getVids } from "./yt"
@@ -84,6 +89,8 @@ function animateIntoView(scrollingP) {
     if (panels[scrollingP].hasAnimated) return
     checkScrollState(panels[scrollingP].Ypos, () => {
         panels[scrollingP].children.forEach((child) => {
+            console.log(scrollingP)
+            console.log(child.id)
             child.classList.remove("inactive")
         })
         panels[scrollingP].hasAnimated = true
@@ -245,32 +252,32 @@ letters.forEach((letter) => {
 // call custom scroll function when permalinks are clicked
 document.getElementById("nav-bio-link").addEventListener("click", (e) => {
     e.preventDefault()
-    scrollDown(1)
+    scrollDown(panels.indexOf(bio))
 })
 
 document.getElementById("nav-projects-link").addEventListener("click", (e) => {
     e.preventDefault()
-    scrollDown(2)
+    scrollDown(panels.indexOf(projects))
 })
 
 document.getElementById("nav-youtube-link").addEventListener("click", (e) => {
     e.preventDefault()
-    scrollDown(3)
+    scrollDown(panels.indexOf(youtube))
 })
 
 document.getElementById("projects-link").addEventListener("click", (e) => {
     e.preventDefault()
-    scrollDown(2)
+    scrollDown(panels.indexOf(projects))
 })
 
 document.getElementById("youtube-link").addEventListener("click", (e) => {
     e.preventDefault()
-    scrollDown(3)
+    scrollDown(panels.indexOf(youtube))
 })
 
 navLogo.addEventListener("click", (e) => {
     e.preventDefault()
-    scrollDown(0)
+    scrollDown(panels.indexOf(main))
 })
 
 // custom scroll functions -> scroll up/down to the next panel Y position

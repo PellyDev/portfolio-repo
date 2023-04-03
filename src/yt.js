@@ -1,11 +1,10 @@
-import { youtube } from "./consts"
+import { youtube, STAGGER_DURATION } from "./consts"
 // API key has been restricted so it doesn't need to be obfuscated or stored in a .env file
 const WATCH_BASE_URL = "https://www.youtube.com/watch?v="
 const API_BASE_URL =
     "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=UUi7SpBeS4FXazpYJOmxGAeg&key="
 const API_KEY = "AIzaSyBOMHDByZ065Tq8OUJSL55FOQEqZz2vQZ8"
 // --stagger-duration; increase duration with each video container
-const STAGGER_DURATION = 238.74
 let staggerFactor = 3
 
 // amount of yt vids that get returnd from the api call
