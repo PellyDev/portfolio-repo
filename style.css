@@ -102,7 +102,6 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    overflow-y: hidden;
     font-family: "Roboto", sans-serif;
 }
 
@@ -908,7 +907,6 @@ section {
 }
 
 /* MEDIA QUERIES */
-
 @media screen and (max-width: 1366px) {
     .yt-container {
         margin-top: 15%;

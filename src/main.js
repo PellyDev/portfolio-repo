@@ -372,8 +372,6 @@ window.addEventListener(
         e.preventDefault()
         if (isScrolling) return
         ts = e.touches[0]["screenY"]
-        /* const newE = (document.createEvent("MouseEvent").type = "mousedown") */
-
         target = e.touches[0].target
     },
     { passive: false }
