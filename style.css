@@ -686,172 +686,17 @@ section {
 /* PROJECTS */
 
 .project-container {
-    display: flex;
-    align-items: center;
-    width: 80%;
     max-width: 1200px;
-    aspect-ratio: 3.5 / 1;
-    margin-bottom: 3rem;
-    cursor: default;
-    transition: all var(--duration-l) var(--stagger-duration) var(--timing-bez);
+    width: 80%;
+    aspect-ratio: 16 / 9;
 }
 
-.project-container:first-child {
-    margin-top: 15vh;
-    margin-top: 15svh;
-}
-
-.right.inactive {
-    translate: 25% 0;
-    opacity: 0%;
-}
-
-.left.inactive {
-    translate: -25% 0;
-    opacity: 0%;
-}
-
-.project-image,
-.project-image-alt {
-    min-width: 50%;
-    height: 100%;
-    border-radius: 0.5rem;
-    overflow: hidden;
-}
-
-.project-image img:first-child,
-.project-image-alt img:first-child {
+.project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.project-image a,
-.project-image-alt a {
-    position: relative;
-}
-
-.project-image a::after,
-.project-image-alt a::after {
-    content: "";
-    background-color: var(--bg-clr);
-    opacity: 0%;
-    position: absolute;
-    inset: 0;
-    transition: all var(--duration-m) var(--timing-bez);
-}
-
-.project-image a::after {
-    left: 0;
-    right: 100%;
-}
-
-.project-image-alt a::after {
-    right: 0;
-    left: 100%;
-}
-
-.project-image a:hover::after,
-.project-image a:focus::after,
-.project-image-alt a:hover::after,
-.project-image-alt a:focus::after {
-    opacity: 70%;
-}
-
-.project-image a:hover::after,
-.project-image a:focus::after {
-    right: 0;
-}
-
-.project-image-alt a:hover::after {
-    left: 0;
-}
-
-.project-image .overlay-icon,
-.project-image-alt .overlay-icon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    scale: 1.5;
-    translate: -50% -50%;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity var(--duration-m) var(--timing-bez),
-        filter var(--duration-s) ease-in-out;
-}
-
-.project-image a:hover .overlay-icon,
-.project-image-alt a:hover .overlay-icon {
-    opacity: 100%;
-}
-
-.project-image a .overlay-icon:hover,
-.project-image-alt a .overlay-icon:hover {
-    filter: brightness(0.5);
-}
-
-.project-info-container,
-.project-info-container-alt {
-    display: flex;
-    height: fit-content;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
-    translate: -15% 0;
-    z-index: 1;
-}
-
-/* info container on the left */
-
-.project-info-container-alt {
-    translate: 15% 0;
-}
-
-.project-info-lower-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0.5rem;
-}
-
-.project-text {
-    color: black;
-    background-color: var(--main-clr-900);
-    opacity: 100%;
-    border-radius: 0.5rem;
-    padding: 2.5rem 1rem;
-}
-
-.project-stack {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    padding: none;
-    padding-inline-start: 0;
-}
-
-.project-stack li {
-    color: var(--bg-clr);
-    background-color: var(--border-500);
-    border-radius: 0.5rem;
-    padding: 0 0.5rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.project-links img {
-    cursor: pointer;
-    stroke: none;
-    scale: 1.25;
-    transition: all var(--duration-s) ease-in-out;
-}
-
-.project-links img:hover {
-    scale: 1.5;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 /* YOUTUBE */

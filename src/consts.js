@@ -56,11 +56,7 @@ export const stack = {
 
 export const projects = {
     node: document.querySelector("#projects"),
-    children: [
-        document.querySelector("#projects .project-container.right"),
-        document.querySelector("#projects .project-container.left"),
-        document.querySelector("#projects .headline"),
-    ],
+    children: [document.querySelector("#projects .headline")],
     Ypos: 0,
     hasAnimated: false,
 }

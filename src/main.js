@@ -89,8 +89,6 @@ function animateIntoView(scrollingP) {
     if (panels[scrollingP].hasAnimated) return
     checkScrollState(panels[scrollingP].Ypos, () => {
         panels[scrollingP].children.forEach((child) => {
-            console.log(scrollingP)
-            console.log(child.id)
             child.classList.remove("inactive")
         })
         panels[scrollingP].hasAnimated = true
@@ -371,8 +369,6 @@ let target // target event from touchstart so pointer/click events can fire
 window.addEventListener(
     "touchstart",
     (e) => {
-        console.log(e.touches)
-        if (e.touches.length > 1) return // enable pinch zooming
         e.preventDefault()
         if (isScrolling) return
         ts = e.touches[0]["screenY"]
@@ -386,7 +382,6 @@ window.addEventListener(
 window.addEventListener(
     "touchend",
     (e) => {
-        if (e.touches.length > 1) return
         if (isScrolling) return
         const te = e.changedTouches[0]["screenY"]
         if (ts - te > 20) {
