@@ -10,7 +10,7 @@ let staggerFactor = 3
 // amount of yt vids that get returnd from the api call
 let length = 0
 
-export function getVids() {
+function getVids() {
     fetch(API_BASE_URL + API_KEY)
         .then((res) => res.json())
         .then((data) => {
@@ -19,7 +19,7 @@ export function getVids() {
         })
 }
 
-export function generateVids(json) {
+function generateVids(json) {
     const parent = document.querySelector(".slider")
     const template = document.querySelector(".slider template")
 
@@ -73,3 +73,5 @@ rightArrow.addEventListener("click", () => {
     }
     slider.style.setProperty("--scroll-index", `${scrollIdx}`)
 })
+
+getVids()

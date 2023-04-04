@@ -22,9 +22,8 @@ import {
     main,
     pageNav,
 } from "./consts"
-import { getVids } from "./yt"
 
-window.scrollTo(0, 0)
+/* window.scrollTo(0, 0) */
 
 let isScrolling = false,
     scrollingPos = 0
@@ -396,5 +395,3 @@ window.addEventListener(
     },
     { passive: false }
 )
-
-getVids()

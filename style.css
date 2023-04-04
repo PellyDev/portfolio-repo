@@ -685,6 +685,7 @@ section {
 /* PROJECTS */
 
 .project-container {
+    position: relative;
     max-width: 1200px;
     width: 80%;
     aspect-ratio: 16 / 9;
@@ -696,6 +697,77 @@ section {
     object-fit: cover;
     border-radius: 1rem;
     overflow: hidden;
+}
+
+.info-container,
+.icon-container {
+    position: absolute;
+    backdrop-filter: blur(0.5rem);
+    overflow: hidden;
+    transition: inset var(--duration-l) var(--timing-bez);
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+}
+
+.icon-container {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 80%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.info-container[data-direction="left"].inactive,
+.icon-container[data-direction="left"].inactive {
+    right: 100%;
+}
+
+.info-container .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+.info-container .logo-container img {
+    width: 7.5%;
+    aspect-ratio: 1 / 1;
+}
+
+.info-container .logo-container h2 {
+    font-family: "Mabry Pro", sans-serif;
+    font-size: 3rem;
+}
+
+.info-container .stack {
+    align-self: center;
+    list-style-type: none;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-container .stack li {
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+    background-color: var(--main-clr-900);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
 }
 
 /* YOUTUBE */
@@ -960,5 +1032,17 @@ section {
         flex-direction: column;
         text-align: center;
         scale: 0.75;
+    }
+
+    .project-container {
+        width: auto;
+        max-width: auto;
+        height: 60%;
+        aspect-ratio: 9 / 16;
+    }
+
+    /* temporary fix to prevent scrolling from breaking on mobile */
+    .yt-container {
+        scale: 0.3;
     }
 }
