@@ -23,7 +23,7 @@ import {
     pageNav,
 } from "./consts"
 
-/* window.scrollTo(0, 0) */
+window.scrollTo(0, 0)
 
 let isScrolling = false,
     scrollingPos = 0
@@ -83,14 +83,24 @@ function toggleBlur(targetYpos, ...elements) {
         })
     })
 }
-// animate section into view if it has not already been animated
+
+/* Removes "inactive" class from all elements in <panel>.children prop UNLESS a <panel>.cb method exists, which will be called instead.
+This is necessary, because some panels have a more complex animation sequence that can't be achieved by just removing a class 
+and needs to be handled by a callback function instead. */
+
 function animateIntoView(scrollingP) {
     if (panels[scrollingP].hasAnimated) return
+    // start animation once panel has been moved into view
     checkScrollState(panels[scrollingP].Ypos, () => {
-        panels[scrollingP].children.forEach((child) => {
-            child.classList.remove("inactive")
-        })
-        panels[scrollingP].hasAnimated = true
+        const panel = panels[scrollingP]
+        if (panel.cb) {
+            panel.cb()
+        } else {
+            panel.children.forEach((child) => {
+                child.classList.remove("inactive")
+            })
+        }
+        panel.hasAnimated = true
     })
 }
 

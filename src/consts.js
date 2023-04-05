@@ -1,4 +1,6 @@
+/* css variables */
 export const STAGGER_DURATION = 238.74
+export const DURATION_L = 1250
 
 export const menuLines = document.querySelectorAll(".cluster")
 export const animatedLines = document.querySelectorAll(".animate")
@@ -56,10 +58,39 @@ export const stack = {
 
 export const projects = {
     node: document.querySelector("#projects"),
-    children: [document.querySelector("#projects .headline")],
+    children: [
+        document.querySelector("#projects .project-container"),
+        document.querySelector("#projects .headline"),
+        document.querySelector(".project-container .top"),
+        document.querySelector(".project-container .bottom"),
+        document.querySelector(".top .logo-container"),
+        document.querySelector(".top .stack"),
+        document.querySelector(".top .show-info"),
+        document.querySelector(
+            ".bottom .icon-container[data-direction='left']"
+        ),
+        document.querySelector(
+            ".bottom .icon-container[data-direction='right']"
+        ),
+    ],
+    cb: function () {
+        this.children.forEach((child, idx) => {
+            if (idx < 4) {
+                child.classList.remove("inactive")
+            } else {
+                setTimeout(() => {
+                    child.style.setProperty("display", "flex")
+                    setTimeout(() => {
+                        child.classList.remove("inactive")
+                    }, 10)
+                }, DURATION_L * 2.499)
+            }
+        })
+    },
     Ypos: 0,
     hasAnimated: false,
 }
+
 export const youtube = {
     node: document.querySelector("#youtube"),
     children: [
