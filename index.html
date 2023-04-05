@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="module" src="src/main.js" defer></script>
-        <script src="src/projects.js" defer></script>
+        <script type="module" src="src/projects.js" defer></script>
         <script type="module" src="src/yt.js" defer></script>
         <title>Pelly Dev</title>
     </head>
@@ -320,26 +320,26 @@
             </div>
             <div data-direction="left" class="project-container inactive">
                 <div data-direction="left" class="top inactive">
-                    <div class="logo-container inactive">
+                    <div class="logo-container inactive animatable">
                         <img src="KITTIFY-LOGO.png" alt="" />
                         <h2>Kittify.</h2>
                         <span class="pipe">&#124;</span>
                         <p class="tagline">A modern store front.</p>
                     </div>
-                    <ul class="stack inactive">
+                    <ul class="stack inactive animatable">
                         <li>React</li>
                         <li>TypeScript</li>
                         <li>Tailwind</li>
                         <li>GSAP</li>
                         <li>Midjourney</li>
                     </ul>
-                    <button class="show-info inactive">
+                    <button class="show-info inactive animatable">
                         <img src="PROJECTS_INFO.svg" alt="" />
                         <span>Show Description</span>
                     </button>
                     <template>
-                        <div class="description">
-                            <p>
+                        <div class="desc">
+                            <p class="inactive">
                                 Kittify is a store front with a modern UI/UX
                                 based on TypeScript, React, and Tailwind. As a
                                 single-page-application with data-driven

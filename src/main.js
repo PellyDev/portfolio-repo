@@ -240,13 +240,13 @@ animatedLines.forEach((line) => {
 
         fixedEls.forEach((el) => {
             el.style.removeProperty("filter")
-            el.style.setProperty("color", "var(--main-clr)")
+            el.style.setProperty("color", "var(--main-clr-1k)")
         })
         navLogo.style.removeProperty("filter")
         navLogo.style.removeProperty("fill")
 
-        scrollCTA.style.setProperty("color", "var(--main-clr)")
-        scrollCTA.style.setProperty("color", "var(--main-clr)")
+        scrollCTA.style.setProperty("color", "var(--main-clr-1k)")
+        scrollCTA.style.setProperty("color", "var(--main-clr-1k)")
         scrollCTA.style.removeProperty("filter")
     })
 })

@@ -79,7 +79,7 @@ export const projects = {
                 child.classList.remove("inactive")
             } else {
                 setTimeout(() => {
-                    child.style.setProperty("display", "flex")
+                    child.style.setProperty("display", "var(--display)")
                     setTimeout(() => {
                         child.classList.remove("inactive")
                     }, 10)

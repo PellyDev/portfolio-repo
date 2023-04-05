@@ -735,7 +735,8 @@ section {
 }
 
 .top .logo-container {
-    display: none; /* will be set to flex after has been called */
+    --display: flex;
+    display: none;
     align-items: center;
     gap: 2rem;
     width: 100%;
@@ -744,10 +745,14 @@ section {
 }
 
 .top .logo-container.inactive,
-.top .stack.inactive,
 .top .show-info.inactive {
     opacity: 0;
     translate: -25% 0;
+}
+
+.top .stack.inactive {
+    opacity: 0;
+    translate: 25% 0;
 }
 
 .top .logo-container img {
@@ -772,18 +777,20 @@ section {
 }
 
 .top .stack {
-    display: none; /* will be set to flex after has been called */
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 90%;
-    align-self: center;
+    --display: grid;
+    display: none;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+    row-gap: 2rem;
+    width: 50%;
     list-style-type: none;
-    transition: translate var(--duration-l) var(--stagger-duration)
+    transition: translate var(--duration-l) calc(var(--duration-l))
             var(--timing-bez),
-        opacity var(--duration-l) var(--stagger-duration) var(--timing-bez);
+        opacity var(--duration-l) calc(var(--duration-l)) var(--timing-bez);
 }
 
 .top .stack li {
+    text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
     color: black;
@@ -794,7 +801,8 @@ section {
 
 .top .show-info {
     all: unset;
-    display: none; /* will be set to flex after has been called */
+    --display: flex;
+    display: none;
     gap: 1rem;
     align-self: flex-end;
     align-items: center;
@@ -806,10 +814,8 @@ section {
     letter-spacing: 1px;
     transition: filter var(--duration-s) ease-in-out,
         scale var(--duration-s) ease-in-out,
-        translate var(--duration-l) calc(var(--stagger-duration) * 2)
-            var(--timing-bez),
-        opacity var(--duration-l) calc(var(--stagger-duration) * 2)
-            var(--timing-bez);
+        translate var(--duration-l) calc(var(--duration-l)) var(--timing-bez),
+        opacity var(--duration-l) calc(var(--duration-l)) var(--timing-bez);
 }
 
 .show-info img {
@@ -820,6 +826,20 @@ section {
 .show-info:hover {
     filter: brightness(1.25);
     scale: 1.05;
+}
+
+.desc p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--main-clr);
+    transition: opacity var(--duration-l) var(--timing-bez),
+        translate var(--duration-l) var(--timing-bez);
+}
+
+.desc p.inactive {
+    opacity: 0;
+    translate: -25% 0;
 }
 
 /* bottom section */
@@ -839,15 +859,14 @@ section {
 }
 
 .icon-container {
-    display: none; /* will be set to flex after has been called */
+    --display: flex;
+    display: none;
     align-items: center;
     gap: 1rem;
     transition: filter var(--duration-s) ease-in-out,
         scale var(--duration-s) ease-in-out,
-        translate var(--duration-l) calc(var(--stagger-duration) * 5)
-            var(--timing-bez),
-        opacity var(--duration-l) calc(var(--stagger-duration) * 5)
-            var(--timing-bez);
+        translate var(--duration-l) var(--timing-bez),
+        opacity var(--duration-l) var(--timing-bez);
 }
 
 .icon-container.inactive[data-direction="left"] {
