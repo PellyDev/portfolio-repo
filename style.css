@@ -708,10 +708,8 @@ section {
     position: absolute;
     backdrop-filter: blur(0.5rem);
     overflow: hidden;
-    transition: inset var(--duration-l) calc(var(--duration-l) * 1.5)
-            var(--timing-bez),
-        opacity var(--duration-l) calc(var(--duration-l) * 1.5)
-            var(--timing-bez);
+    transition: inset var(--duration-l) var(--duration-l) var(--timing-bez),
+        opacity var(--duration-l) var(--duration-l) var(--timing-bez);
 }
 
 .project-container.inactive[data-direction="left"] {
@@ -745,9 +743,8 @@ section {
 }
 
 .top .logo-container.inactive,
-.top .show-info.inactive {
+.top .flush.inactive {
     opacity: 0;
-    translate: -25% 0;
 }
 
 .top .stack.inactive {
@@ -765,7 +762,7 @@ section {
     font-size: 3rem;
 }
 
-.logo-container .pipe {
+.pipe {
     color: var(--white-250);
     font-size: 3rem;
 }
@@ -779,27 +776,32 @@ section {
 .top .stack {
     --display: grid;
     display: none;
-    grid-template-columns: repeat(3, auto);
-    gap: 1rem;
+    grid-template-columns: repeat(5, auto);
     row-gap: 2rem;
     width: 50%;
     list-style-type: none;
-    transition: translate var(--duration-l) calc(var(--duration-l))
+    transition: translate var(--duration-l) var(--stagger-duration)
             var(--timing-bez),
-        opacity var(--duration-l) calc(var(--duration-l)) var(--timing-bez);
+        opacity var(--duration-l) var(--stagger-duration) var(--timing-bez);
+}
+
+.stack > * {
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+.stack .pipe {
+    font-size: 2.5rem;
 }
 
 .top .stack li {
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: black;
-    background-color: var(--white-500);
-    border-radius: 1rem;
+    font-weight: 400;
+    color: var(--main-clr-900);
     padding: 0.5rem 1rem;
 }
 
-.top .show-info {
+.flush {
     all: unset;
     --display: flex;
     display: none;
@@ -814,32 +816,45 @@ section {
     letter-spacing: 1px;
     transition: filter var(--duration-s) ease-in-out,
         scale var(--duration-s) ease-in-out,
-        translate var(--duration-l) calc(var(--duration-l)) var(--timing-bez),
-        opacity var(--duration-l) calc(var(--duration-l)) var(--timing-bez);
+        translate var(--duration-l) var(--stagger-duration) var(--timing-bez),
+        opacity var(--duration-l) var(--stagger-duration) var(--timing-bez);
 }
 
-.show-info img {
+.desc > .flush {
+    display: flex;
+}
+
+.flush img {
     width: 50px;
     aspect-ratio: 1 / 1;
 }
 
-.show-info:hover {
+.flush:hover {
     filter: brightness(1.25);
     scale: 1.05;
 }
 
+.desc {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .desc p {
+    width: 80%;
     font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
+
+    text-align: justify;
     color: var(--main-clr);
     transition: opacity var(--duration-l) var(--timing-bez),
-        translate var(--duration-l) var(--timing-bez);
+        scale var(--duration-l) var(--timing-bez);
 }
 
 .desc p.inactive {
     opacity: 0;
-    translate: -25% 0;
+    scale: 0.75;
 }
 
 /* bottom section */

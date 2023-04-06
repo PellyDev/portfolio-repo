@@ -65,7 +65,7 @@ export const projects = {
         document.querySelector(".project-container .bottom"),
         document.querySelector(".top .logo-container"),
         document.querySelector(".top .stack"),
-        document.querySelector(".top .show-info"),
+        document.querySelector(".top .flush"),
         document.querySelector(
             ".bottom .icon-container[data-direction='left']"
         ),
@@ -83,7 +83,7 @@ export const projects = {
                     setTimeout(() => {
                         child.classList.remove("inactive")
                     }, 10)
-                }, DURATION_L * 2.499)
+                }, DURATION_L * 1.99)
             }
         })
     },

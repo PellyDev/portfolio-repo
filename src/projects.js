@@ -1,31 +1,73 @@
 import { STAGGER_DURATION } from "./consts"
 
-const infoBtn = document.querySelector("button.show-info")
-const top = document.querySelector(".top")
-const stackGrid = document.querySelector(".top .stack")
 const descTemplate = document.querySelector(".top > template")
-const animatableEl = document.querySelectorAll(".animatable")
-
-let isInfoShown = false
-
 const temp = descTemplate.content.cloneNode(true)
 const desc = temp.querySelector(".desc")
+const flushForward = document.querySelector(".top > button.flush")
+const flushBack = desc.querySelector("button.flush")
+const top = document.querySelector(".top")
+const stackGrid = document.querySelector(".top .stack")
+const animatableOne = document.querySelectorAll(".top > .animatable")
+const animatableTwo = desc.querySelectorAll(".animatable")
 
-infoBtn.addEventListener("click", () => {
-    if (!isInfoShown) {
-        stackGrid.addEventListener("transitionend", () => {
-            animatableEl.forEach((el) => {
-                el.style.setProperty("display", "none")
+attachFlushForwardListener()
+
+// handle "show me more" btn
+function attachFlushForwardListener() {
+    flushForward.addEventListener(
+        "click",
+        () => {
+            stackGrid.addEventListener(
+                "transitionend",
+                (e) => {
+                    if (e.propertyName !== "opacity") return
+                    attachFlushBackListener()
+                    animatableOne.forEach((el) => {
+                        el.style.setProperty("display", "none")
+                    })
+                    top.appendChild(desc)
+                    setTimeout(() => {
+                        const children = desc.children
+                        for (let child of children) {
+                            child.classList.remove("inactive")
+                        }
+                    }, 10)
+                },
+                { once: true }
+            )
+            animatableOne.forEach((el) => {
+                el.classList.add("inactive")
             })
-            top.appendChild(desc)
-            setTimeout(() => {
-                desc.querySelector("p").classList.remove("inactive")
-            }, 10)
-        })
-        animatableEl.forEach((el) => {
-            el.classList.add("inactive")
-        })
-    } else {
-    }
-    isInfoShown = !isInfoShown
-})
+        },
+        { once: true }
+    )
+}
+
+// handle "take me back" btn
+function attachFlushBackListener() {
+    flushBack.addEventListener(
+        "click",
+        () => {
+            desc.querySelector("p").addEventListener(
+                "transitionend",
+                (e) => {
+                    if (e.propertyName !== "opacity") return
+                    attachFlushForwardListener()
+
+                    desc.remove()
+                    animatableOne.forEach((el) => {
+                        el.style.setProperty("display", "var(--display)")
+                        setTimeout(() => {
+                            el.classList.remove("inactive")
+                        }, 10)
+                    })
+                },
+                { once: true }
+            )
+            animatableTwo.forEach((el) => {
+                el.classList.add("inactive")
+            })
+        },
+        { once: true }
+    )
+}
