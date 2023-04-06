@@ -61,16 +61,86 @@ export const projects = {
     children: [
         document.querySelector("#projects .project-container"),
         document.querySelector("#projects .headline"),
-        document.querySelector(".project-container .top"),
-        document.querySelector(".project-container .bottom"),
-        document.querySelector(".top .logo-container"),
-        document.querySelector(".top .stack"),
-        document.querySelector(".top .flush"),
+        document.querySelector("#projects .project-container .top"),
+        document.querySelector("#projects .project-container .bottom"),
+        document.querySelector("#projects .top .logo-container"),
+        document.querySelector("#projects .top .stack"),
+        document.querySelector("#projects .top .flush"),
         document.querySelector(
-            ".bottom .icon-container[data-direction='left']"
+            "#projects .bottom .icon-container[data-direction='left']"
         ),
         document.querySelector(
-            ".bottom .icon-container[data-direction='right']"
+            "#projects .bottom .icon-container[data-direction='right']"
+        ),
+    ],
+    cb: function () {
+        this.children.forEach((child, idx) => {
+            if (idx < 4) {
+                child.classList.remove("inactive")
+            } else {
+                setTimeout(() => {
+                    child.style.setProperty("display", "var(--display)")
+                    setTimeout(() => {
+                        child.classList.remove("inactive")
+                    }, 10)
+                }, DURATION_L * 1.99)
+            }
+        })
+    },
+    Ypos: 0,
+    hasAnimated: false,
+}
+
+export const project2 = {
+    node: document.querySelector("#project2"),
+    children: [
+        document.querySelector("#project2 .project-container"),
+        document.querySelector("#project2 .headline"),
+        document.querySelector("#project2 .project-container .top"),
+        document.querySelector("#project2 .project-container .bottom"),
+        document.querySelector("#project2 .top .logo-container"),
+        document.querySelector("#project2 .top .stack"),
+        document.querySelector("#project2 .top .flush"),
+        document.querySelector(
+            "#project2 .bottom .icon-container[data-direction='left']"
+        ),
+        document.querySelector(
+            "#project2 .bottom .icon-container[data-direction='right']"
+        ),
+    ],
+    cb: function () {
+        this.children.forEach((child, idx) => {
+            if (idx < 4) {
+                child.classList.remove("inactive")
+            } else {
+                setTimeout(() => {
+                    child.style.setProperty("display", "var(--display)")
+                    setTimeout(() => {
+                        child.classList.remove("inactive")
+                    }, 10)
+                }, DURATION_L * 1.99)
+            }
+        })
+    },
+    Ypos: 0,
+    hasAnimated: false,
+}
+
+export const project3 = {
+    node: document.querySelector("#project3"),
+    children: [
+        document.querySelector("#project3 .project-container"),
+        document.querySelector("#project3 .headline"),
+        document.querySelector("#project3 .project-container .top"),
+        document.querySelector("#project3 .project-container .bottom"),
+        document.querySelector("#project3 .top .logo-container"),
+        document.querySelector("#project3 .top .stack"),
+        document.querySelector("#project3 .top .flush"),
+        document.querySelector(
+            "#project3 .bottom .icon-container[data-direction='left']"
+        ),
+        document.querySelector(
+            "#project3 .bottom .icon-container[data-direction='right']"
         ),
     ],
     cb: function () {
@@ -102,7 +172,7 @@ export const youtube = {
     hasAnimated: false,
 }
 
-export const panels = [main, bio, stack, projects, youtube]
+export const panels = [main, bio, stack, projects, project2, project3, youtube]
 
 export const pageNav = {
     node: document.querySelector(".fixed.page-nav"),

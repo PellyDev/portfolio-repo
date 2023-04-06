@@ -716,6 +716,11 @@ section {
     opacity: 0;
     translate: -25% 0;
 }
+
+.project-container.inactive[data-direction="right"] {
+    opacity: 0;
+    translate: 25% 0;
+}
 /* top section */
 
 .project-container .top {
@@ -912,6 +917,12 @@ section {
 .top[data-direction="left"].inactive,
 .bottom[data-direction="left"].inactive {
     right: 100%;
+    opacity: 0;
+}
+
+.top[data-direction="right"].inactive,
+.bottom[data-direction="right"].inactive {
+    left: 100%;
     opacity: 0;
 }
 
