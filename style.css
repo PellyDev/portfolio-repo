@@ -850,7 +850,6 @@ section {
 .desc p {
     width: 80%;
     font-size: 1.5rem;
-
     text-align: justify;
     color: var(--main-clr);
     transition: opacity var(--duration-l) var(--timing-bez),
@@ -1195,6 +1194,65 @@ section {
         max-width: auto;
         height: 60%;
         aspect-ratio: 9 / 16;
+    }
+
+    .project-container .top {
+        padding: 0.5rem;
+        bottom: 15%;
+    }
+
+    .project-container .bottom {
+        top: 85%;
+    }
+
+    .top .logo-container {
+        gap: 0.5rem;
+    }
+
+    .top .logo-container .tagline {
+        font-size: 1rem;
+        gap: 1rem;
+    }
+
+    .top .logo-container img {
+        width: 20%;
+    }
+
+    .top .logo-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .top .stack {
+        width: fit-content;
+        padding: 0;
+
+        align-self: center;
+        row-gap: 1rem;
+    }
+
+    .top .stack > * {
+        font-size: 1rem;
+    }
+
+    .top .stack li {
+        padding: 0.5rem;
+    }
+
+    .flush {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .flush img {
+        width: 30px;
+    }
+
+    .icon-container .text {
+        display: none;
+    }
+
+    .desc p {
+        font-size: 0.85rem;
     }
 
     /* temporary fix to prevent scrolling from breaking on mobile */
