@@ -103,7 +103,7 @@ body {
     background-color: var(--black-950);
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: "Roboto", sans-serif;
 }
 

@@ -23,7 +23,9 @@ import {
     pageNav,
 } from "./consts"
 
-window.scrollTo(0, 0)
+document.addEventListener("DOMContentLoaded", () => {
+    window.scrollTo(0, 0)
+})
 
 let isScrolling = false,
     scrollingPos = 0
@@ -111,6 +113,75 @@ function updatePageNav(scrollingP) {
     })
 }
 
+function mountListeners() {
+    // disable mousewheel and call custom scroll functions instead
+    window.addEventListener(
+        "wheel",
+        (e) => {
+            if (e.ctrlKey) return // allow zooming with mouse wheel
+            e.preventDefault()
+            if (isScrolling) return
+            if (e.deltaY > 30) {
+                scrollDown()
+            }
+            if (e.deltaY < -30) {
+                scrollUp()
+            }
+        },
+        { passive: false, capture: true }
+    )
+
+    // disable up/down arrow keys and call custom scroll functions instead
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowUp") {
+            e.preventDefault()
+            if (isScrolling) return
+            isScrolling = true
+            scrollUp()
+        } else if (e.key === "ArrowDown") {
+            e.preventDefault()
+            if (isScrolling) return
+            isScrolling = true
+            scrollDown()
+        }
+    })
+
+    // disable scrolling by touchmove and call custom scroll functions instead
+
+    let ts // touch start position
+    let target // target event from touchstart so pointer/click events can fire
+    window.addEventListener(
+        "touchstart",
+        (e) => {
+            e.preventDefault()
+            if (isScrolling) return
+            ts = e.touches[0]["screenY"]
+            target = e.touches[0].target
+        },
+        { passive: false }
+    )
+
+    window.addEventListener(
+        "touchend",
+        (e) => {
+            if (isScrolling) return
+            const te = e.changedTouches[0]["screenY"]
+            if (ts - te > 20) {
+                // add an offset of 20 to make the touchmove scrolling less sensitive
+                isScrolling = true
+                scrollDown()
+            } else if (ts - te < -20) {
+                isScrolling = true
+                scrollUp()
+            } else if (target instanceof HTMLElement) {
+                // check if HTMLElement is in the prototype chain of target, because only HTMLElements have a click() method
+                target.click()
+            }
+        },
+        { passive: false }
+    )
+}
+
 // react style / data-driven rendering of page navigation at the bottom of each panel
 // renders a square for each panel (section) in the panels array
 panels.forEach((panel, idx) => {
@@ -164,6 +235,12 @@ checkStyleState(document.querySelector(".j-left"), "fill-opacity", "1", () => {
                                 scrollCTA.style.setProperty("scale", "1")
                                 // remove invisible overlay that prevents hover effects during intro animation
                                 document.querySelector(".overlay").remove()
+                                // enable scrolling
+                                document.body.style.setProperty(
+                                    "overflowY",
+                                    "auto"
+                                )
+                                mountListeners()
                             }, 1250)
                         }
                     )
@@ -335,70 +412,3 @@ function scrollDown(scrollTo = null) {
         isScrolling = false
     })
 }
-
-// disable mousewheel and call custom scroll functions instead
-window.addEventListener(
-    "wheel",
-    (e) => {
-        if (e.ctrlKey) return // allow zooming with mouse wheel
-        e.preventDefault()
-        if (isScrolling) return
-        if (e.deltaY > 10) {
-            scrollDown()
-        }
-        if (e.deltaY < -10) {
-            scrollUp()
-        }
-    },
-    { passive: false, capture: true }
-)
-
-// disable up/down arrow keys and call custom scroll functions instead
-window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowUp") {
-        e.preventDefault()
-        if (isScrolling) return
-        isScrolling = true
-        scrollUp()
-    } else if (e.key === "ArrowDown") {
-        e.preventDefault()
-        if (isScrolling) return
-        isScrolling = true
-        scrollDown()
-    }
-})
-
-// disable scrolling by touchmove and call custom scroll functions instead
-
-let ts // touch start position
-let target // target event from touchstart so pointer/click events can fire
-window.addEventListener(
-    "touchstart",
-    (e) => {
-        e.preventDefault()
-        if (isScrolling) return
-        ts = e.touches[0]["screenY"]
-        target = e.touches[0].target
-    },
-    { passive: false }
-)
-
-window.addEventListener(
-    "touchend",
-    (e) => {
-        if (isScrolling) return
-        const te = e.changedTouches[0]["screenY"]
-        if (ts - te > 20) {
-            // add an offset of 20 to make the touchmove scrolling less sensitive
-            isScrolling = true
-            scrollDown()
-        } else if (ts - te < -20) {
-            isScrolling = true
-            scrollUp()
-        } else if (target instanceof HTMLElement) {
-            // check if HTMLElement is in the prototype chain of target, because only HTMLElements have a click() method
-            target.click()
-        }
-    },
-    { passive: false }
-)
