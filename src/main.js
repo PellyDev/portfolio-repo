@@ -24,6 +24,7 @@ import {
 } from "./consts"
 
 document.addEventListener("DOMContentLoaded", () => {
+    getPanelPos(panels)
     window.scrollTo(0, 0)
 })
 
@@ -64,8 +65,6 @@ function getPanelPos(panels) {
         }
     })
 }
-
-getPanelPos(panels)
 
 // applies blur class to elements and removes it once target Y has been reached
 function toggleBlur(targetYpos, ...elements) {

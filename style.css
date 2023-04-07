@@ -688,9 +688,8 @@ section {
 
 .project-container {
     position: relative;
-    max-width: 1200px;
-    width: 80%;
-    aspect-ratio: 16 / 9;
+    width: calc(1.618 * 60vh);
+    height: 60vh;
     transition: all var(--duration-l) calc(var(--duration-l) * 0.5)
         var(--timing-bez);
 }
