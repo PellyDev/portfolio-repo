@@ -95,6 +95,7 @@ ________________________________________________________________________________
 }
 
 html {
+    scrollbar-width: none;
     scroll-behavior: smooth;
 }
 
@@ -690,6 +691,7 @@ section {
     position: relative;
     width: calc(1.618 * 60vh);
     height: 60vh;
+    max-width: 90%;
     transition: all var(--duration-l) calc(var(--duration-l) * 0.5)
         var(--timing-bez);
 }

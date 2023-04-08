@@ -15,7 +15,6 @@ import {
     navItemsContainer,
     scrollCTA,
     panels,
-    stack,
     youtube,
     projects,
     bio,
@@ -46,6 +45,7 @@ function checkStyleState(DOMnode, styleProp, targetValue, cb) {
         )
     }
 }
+
 // cb is called upon raching the specified Y scroll position
 function checkScrollState(targetYpos, cb) {
     if (Math.floor(scrollY) === Math.floor(targetYpos)) {
@@ -179,6 +179,58 @@ function mountListeners() {
         },
         { passive: false }
     )
+}
+
+// custom scroll functions -> scroll up/down to the next panel Y position
+function scrollUp() {
+    isScrolling = true
+    if (scrollingPos === 0) {
+        isScrolling = false
+        return
+    }
+    scrollingPos = scrollingPos - 1
+    window.scrollTo(0, panels[scrollingPos].Ypos)
+    toggleBlur(panels[scrollingPos].Ypos, nav, fixedElsLeft, fixedElsRight)
+    animateIntoView(scrollingPos)
+    updatePageNav(scrollingPos)
+    checkScrollState(panels[scrollingPos].Ypos, () => {
+        isScrolling = false
+    })
+}
+
+// scrollTo argument is passed if a permalink is clicked
+function scrollDown(scrollTo = null) {
+    isScrolling = true
+    if (scrollTo !== null) {
+        if (scrollY !== panels[scrollTo].Ypos) {
+            scrollingPos = scrollTo
+            window.scrollTo(0, panels[scrollingPos].Ypos)
+            toggleBlur(
+                panels[scrollingPos].Ypos,
+                nav,
+                fixedElsLeft,
+                fixedElsRight
+            )
+            animateIntoView(scrollingPos)
+            updatePageNav(scrollingPos)
+            checkScrollState(panels[scrollingPos].Ypos, () => {})
+        }
+        isScrolling = false
+        return
+    }
+    if (scrollingPos === panels.length - 1) {
+        scrollingPos = 0
+        window.scrollTo(0, panels[scrollingPos].Ypos)
+    } else {
+        scrollingPos += 1
+        window.scrollTo(0, panels[scrollingPos].Ypos)
+    }
+    toggleBlur(panels[scrollingPos].Ypos, nav, fixedElsLeft, fixedElsRight)
+    animateIntoView(scrollingPos)
+    updatePageNav(scrollingPos)
+    checkScrollState(panels[scrollingPos].Ypos, () => {
+        isScrolling = false
+    })
 }
 
 // react style / data-driven rendering of page navigation at the bottom of each panel
@@ -359,55 +411,3 @@ navLogo.addEventListener("click", (e) => {
     e.preventDefault()
     scrollDown(panels.indexOf(main))
 })
-
-// custom scroll functions -> scroll up/down to the next panel Y position
-function scrollUp() {
-    isScrolling = true
-    if (scrollingPos === 0) {
-        isScrolling = false
-        return
-    }
-    scrollingPos = scrollingPos - 1
-    window.scrollTo(0, panels[scrollingPos].Ypos)
-    toggleBlur(panels[scrollingPos].Ypos, nav, fixedElsLeft, fixedElsRight)
-    animateIntoView(scrollingPos)
-    updatePageNav(scrollingPos)
-    checkScrollState(panels[scrollingPos].Ypos, () => {
-        isScrolling = false
-    })
-}
-
-// scrollTo argument is passed if a permalink is clicked
-function scrollDown(scrollTo = null) {
-    isScrolling = true
-    if (scrollTo !== null) {
-        if (scrollY !== panels[scrollTo].Ypos) {
-            scrollingPos = scrollTo
-            window.scrollTo(0, panels[scrollingPos].Ypos)
-            toggleBlur(
-                panels[scrollingPos].Ypos,
-                nav,
-                fixedElsLeft,
-                fixedElsRight
-            )
-            animateIntoView(scrollingPos)
-            updatePageNav(scrollingPos)
-            checkScrollState(panels[scrollingPos].Ypos, () => {})
-        }
-        isScrolling = false
-        return
-    }
-    if (scrollingPos === panels.length - 1) {
-        scrollingPos = 0
-        window.scrollTo(0, panels[scrollingPos].Ypos)
-    } else {
-        scrollingPos += 1
-        window.scrollTo(0, panels[scrollingPos].Ypos)
-    }
-    toggleBlur(panels[scrollingPos].Ypos, nav, fixedElsLeft, fixedElsRight)
-    animateIntoView(scrollingPos)
-    updatePageNav(scrollingPos)
-    checkScrollState(panels[scrollingPos].Ypos, () => {
-        isScrolling = false
-    })
-}

@@ -24,7 +24,7 @@ function generateVids(json) {
     const template = document.querySelector(".slider template")
 
     json.items.forEach((vid) => {
-        const { title, description, publishedAt: date } = vid.snippet
+        const { title, publishedAt: date } = vid.snippet
         const { url: thumnbnail } = vid.snippet.thumbnails.maxres
         const { videoId } = vid.snippet.resourceId
         const dateFormatted = new Intl.DateTimeFormat("de-DE").format(

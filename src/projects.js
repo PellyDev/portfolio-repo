@@ -1,3 +1,5 @@
+import { DURATION_M } from "./consts"
+
 class Project {
     constructor(node) {
         this.node = node
@@ -11,11 +13,11 @@ class Project {
         this.stackGrid = this.node.querySelector(".top .stack")
         this.animatableOne = this.node.querySelectorAll(".top > .animatable")
         this.animatableTwo = this.desc.querySelectorAll(".animatable")
-        this.attachFlushForwardListener()
+        this.mountFlushForwardListener()
     }
 
     // handle "show me more" btn
-    attachFlushForwardListener() {
+    mountFlushForwardListener() {
         this.flushForward.addEventListener(
             "click",
             () => {
@@ -23,7 +25,7 @@ class Project {
                     "transitionend",
                     (e) => {
                         if (e.propertyName !== "opacity") return
-                        this.attachFlushBackListener()
+                        this.unmountFlushBackListener()
                         this.animatableOne.forEach((el) => {
                             el.style.setProperty("display", "none")
                         })
@@ -38,6 +40,10 @@ class Project {
                     { once: true }
                 )
                 this.animatableOne.forEach((el) => {
+                    el.style.setProperty(
+                        "transition-duration",
+                        "calc(var(--duration-l) / 2)"
+                    )
                     el.classList.add("inactive")
                 })
             },
@@ -46,7 +52,7 @@ class Project {
     }
 
     // handle "take me back" btn
-    attachFlushBackListener() {
+    unmountFlushBackListener() {
         this.flushBack.addEventListener(
             "click",
             () => {
@@ -54,7 +60,7 @@ class Project {
                     "transitionend",
                     (e) => {
                         if (e.propertyName !== "opacity") return
-                        this.attachFlushForwardListener()
+                        this.mountFlushForwardListener()
 
                         this.desc.remove()
                         this.animatableOne.forEach((el) => {
@@ -67,6 +73,10 @@ class Project {
                     { once: true }
                 )
                 this.animatableTwo.forEach((el) => {
+                    el.style.setProperty(
+                        "transition-duration",
+                        "calc(var(--duration-l) / 2)"
+                    )
                     el.classList.add("inactive")
                 })
             },
