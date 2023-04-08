@@ -195,6 +195,12 @@ function scrollUp() {
 
 // scrollTo argument is passed if a permalink is clicked
 function scrollDown(scrollTo = null) {
+    const positions = () => {
+        const pos = []
+        panels.forEach((panel) => pos.push(panel.Ypos))
+        return pos
+    }
+    alert(positions())
     isScrolling = true
     if (scrollTo !== null) {
         if (scrollY !== panels[scrollTo].Ypos) {
@@ -239,8 +245,8 @@ panels.forEach((panel, idx) => {
 })
 
 // initial setup
-getPanelPos(panels)
 window.scrollTo(0, 0)
+getPanelPos(panels)
 checkScrollState(0, () => {
     document.querySelector(".j-left").classList.add("animate")
     document.querySelector(".j-right").classList.add("animate")
