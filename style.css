@@ -201,7 +201,7 @@ section {
 /* MAIN */
 
 .overlay {
-    display: none;
+    opacity: 0;
     position: absolute;
     inset: 0;
     z-index: 5;
@@ -506,6 +506,9 @@ section {
     fill-opacity: 0%;
     stroke-dasharray: 350.98651123046875;
     stroke-dashoffset: 350.98651123046875;
+}
+
+#landing .j-left.animate {
     animation: drawleft var(--duration-l) ease-in-out forwards,
         fill var(--duration-l) var(--duration-l) var(--timing-bez) forwards;
 }
@@ -516,9 +519,13 @@ section {
     fill-opacity: 0%;
     stroke-dasharray: 605.9097900390625;
     stroke-dashoffset: 605.9097900390625;
+}
+
+#landing .j-right.animate {
     animation: drawright var(--duration-l) ease-in-out forwards,
         fill var(--duration-l) var(--duration-l) var(--timing-bez) forwards;
 }
+
 /* keyframes */
 
 @keyframes drawleft {

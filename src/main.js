@@ -23,8 +23,12 @@ import {
 } from "./consts"
 
 document.addEventListener("DOMContentLoaded", () => {
-    getPanelPos(panels)
     window.scrollTo(0, 0)
+    checkScrollState(0, () => {
+        getPanelPos(panels)
+        document.querySelector(".j-left").classList.add("animate")
+        document.querySelector(".j-right").classList.add("animate")
+    })
 })
 
 let isScrolling = false,
