@@ -22,15 +22,6 @@ import {
     pageNav,
 } from "./consts"
 
-document.addEventListener("DOMContentLoaded", () => {
-    window.scrollTo(0, 0)
-    checkScrollState(0, () => {
-        getPanelPos(panels)
-        document.querySelector(".j-left").classList.add("animate")
-        document.querySelector(".j-right").classList.add("animate")
-    })
-})
-
 let isScrolling = false,
     scrollingPos = 0
 
@@ -247,62 +238,103 @@ panels.forEach((panel, idx) => {
     if (idx === 0) pageNav.children[0].classList = "active"
 })
 
-// animation of main page after animation of landing page has finished
-checkStyleState(document.querySelector(".j-left"), "fill-opacity", "1", () => {
-    setTimeout(() => {
-        // "pull up curtain" and start animating main page content
-        landing.style.setProperty("height", "0%")
-        landingLogo.style.setProperty("opacity", "0%")
-        setTimeout(() => {
-            // stagger the menu lines
-            let lineCounter = 0
-            const intervalId = setInterval(() => {
-                if (lineCounter < 4) {
-                    menuLines[lineCounter].style.setProperty("translate", "0 0")
-                    menuLines[lineCounter].style.setProperty("opacity", "100%")
-                    lineCounter++
-                } else {
-                    clearInterval(intervalId)
-                    // start aditional round of animations once the last line has finished animating
-                    checkStyleState(
-                        menuLines[menuLines.length - 1],
-                        "opacity",
-                        "1",
-                        () => {
-                            fixedElsLeft.forEach((el) => {
-                                el.style.setProperty("opacity", "1")
-                                el.style.setProperty("translate", "0 0")
-                            })
-                            pageNav.node.style.setProperty("opacity", "1")
-                            fixedElsRight.style.setProperty("opacity", "1")
-                            fixedElsRight.style.setProperty("translate", "0 0")
-                            navItemsContainer.style.setProperty("opacity", "1")
-                            navItemsContainer.style.setProperty(
+// initial setup
+getPanelPos(panels)
+window.scrollTo(0, 0)
+checkScrollState(0, () => {
+    document.querySelector(".j-left").classList.add("animate")
+    document.querySelector(".j-right").classList.add("animate")
+    // animation of main page after animation of landing page has finished
+    checkStyleState(
+        document.querySelector(".j-left"),
+        "fill-opacity",
+        "1",
+        () => {
+            setTimeout(() => {
+                // "pull up curtain" and start animating main page content
+                landing.style.setProperty("height", "0%")
+                landingLogo.style.setProperty("opacity", "0%")
+                setTimeout(() => {
+                    // stagger the menu lines
+                    let lineCounter = 0
+                    const intervalId = setInterval(() => {
+                        if (lineCounter < 4) {
+                            menuLines[lineCounter].style.setProperty(
                                 "translate",
                                 "0 0"
                             )
-                            navLogo.style.setProperty("opacity", "1")
-                            navLogo.style.setProperty("translate", "0 0")
-                            landing.remove()
-                            // show scrollbar, enable scrolling, and display scroll CTA
-                            setTimeout(() => {
-                                scrollCTA.style.setProperty("opacity", "1")
-                                scrollCTA.style.setProperty("scale", "1")
-                                // remove invisible overlay that prevents hover effects during intro animation
-                                document.querySelector(".overlay").remove()
-                                // enable scrolling
-                                document.body.style.setProperty(
-                                    "overflowY",
-                                    "auto"
-                                )
-                                mountListeners()
-                            }, 1250)
+                            menuLines[lineCounter].style.setProperty(
+                                "opacity",
+                                "100%"
+                            )
+                            lineCounter++
+                        } else {
+                            clearInterval(intervalId)
+                            // start aditional round of animations once the last line has finished animating
+                            checkStyleState(
+                                menuLines[menuLines.length - 1],
+                                "opacity",
+                                "1",
+                                () => {
+                                    fixedElsLeft.forEach((el) => {
+                                        el.style.setProperty("opacity", "1")
+                                        el.style.setProperty("translate", "0 0")
+                                    })
+                                    pageNav.node.style.setProperty(
+                                        "opacity",
+                                        "1"
+                                    )
+                                    fixedElsRight.style.setProperty(
+                                        "opacity",
+                                        "1"
+                                    )
+                                    fixedElsRight.style.setProperty(
+                                        "translate",
+                                        "0 0"
+                                    )
+                                    navItemsContainer.style.setProperty(
+                                        "opacity",
+                                        "1"
+                                    )
+                                    navItemsContainer.style.setProperty(
+                                        "translate",
+                                        "0 0"
+                                    )
+                                    navLogo.style.setProperty("opacity", "1")
+                                    navLogo.style.setProperty(
+                                        "translate",
+                                        "0 0"
+                                    )
+                                    landing.remove()
+                                    // show scrollbar, enable scrolling, and display scroll CTA
+                                    setTimeout(() => {
+                                        scrollCTA.style.setProperty(
+                                            "opacity",
+                                            "1"
+                                        )
+                                        scrollCTA.style.setProperty(
+                                            "scale",
+                                            "1"
+                                        )
+                                        // remove invisible overlay that prevents hover effects during intro animation
+                                        document
+                                            .querySelector(".overlay")
+                                            .remove()
+                                        // enable scrolling
+                                        document.body.style.setProperty(
+                                            "overflowY",
+                                            "auto"
+                                        )
+                                        mountListeners()
+                                    }, 1250)
+                                }
+                            )
                         }
-                    )
-                }
-            }, 238.74)
-        }, 772.55)
-    }, 625)
+                    }, 238.74)
+                }, 772.55)
+            }, 625)
+        }
+    )
 })
 
 // get new panel pos on window resize
