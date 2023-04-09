@@ -63,6 +63,7 @@ import { isOnMobile } from "./root"
 
     // Removes "inactive" class from all elements in <panel>.children UNLESS <panel>.cb exists, which will be called instead
     function animateIntoView(scrollingP) {
+        if (panels[scrollingP].hasAnimated) return
         // start animation once panel has been moved into view
         const panel = panels[scrollingP]
         if (panel.cb) {
@@ -95,10 +96,8 @@ import { isOnMobile } from "./root"
 
         // show each panel when it reached 1/2 of the viewport height
         panels.forEach((panel, idx) => {
-            if (idx === 0) return
             if (scrollY > panel.Ypos - VH * 0.5 && !panel.hasAnimated) {
                 animateIntoView(idx)
-                scrollTo(0, panel.Ypos, { behavior: "smooth" })
             }
         })
         // debounce scroll event
