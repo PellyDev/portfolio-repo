@@ -23,8 +23,6 @@ import {
 } from "./consts"
 import { isOnMobile } from "./root"
 
-const VH = window.innerHeight
-
 // IIFE that immediately returns if not on mobile
 ;(function () {
     if (!isOnMobile) return
@@ -65,7 +63,6 @@ const VH = window.innerHeight
 
     // Removes "inactive" class from all elements in <panel>.children UNLESS <panel>.cb exists, which will be called instead
     function animateIntoView(scrollingP) {
-        if (panels[scrollingP].hasAnimated) return
         // start animation once panel has been moved into view
         const panel = panels[scrollingP]
         if (panel.cb) {
@@ -78,21 +75,47 @@ const VH = window.innerHeight
         panel.hasAnimated = true
     }
 
+    const VH = window.innerHeight
     let debounce = false
-    window.addEventListener("scroll", () => {
+    let prevY = 0
+
+    function scrollHandler() {
         if (debounce) return
         debounce = true
-        console.log("i run")
+        // hide nav on scroll down, show on scroll up
+        const curY = scrollY
+        if (curY > prevY) {
+            nav.style.opacity = "0"
+            nav.style.pointerEvents = "none"
+        } else {
+            nav.style.opacity = "1"
+            nav.style.pointerEvents = "all"
+        }
+        prevY = curY
+
+        // show each panel when it reached 1/2 of the viewport height
         panels.forEach((panel, idx) => {
-            if (scrollY > panel.Ypos - VH * 0.5) {
+            if (idx === 0) return
+            if (scrollY > panel.Ypos - VH * 0.5 && !panel.hasAnimated) {
                 animateIntoView(idx)
+                scrollTo(0, panel.Ypos, { behavior: "smooth" })
             }
         })
+        // debounce scroll event
         setTimeout(() => {
             debounce = false
         }, 50)
-    })
+    }
 
+    function mountListeners() {
+        window.addEventListener("scroll", scrollHandler)
+
+        window.addEventListener("beforeunload", () => {
+            window.removeEventListener("scroll", scrollHandler)
+        })
+    }
+
+    // initial setup
     window.scrollTo(0, 0)
     getPanelPos(panels)
     checkScrollState(0, () => {
@@ -196,6 +219,12 @@ const VH = window.innerHeight
                                                 "overflow-x",
                                                 "hidden"
                                             )
+                                            nav.style.setProperty(
+                                                "transition",
+                                                "opacity var(--duration-m) ease-in-out"
+                                            )
+                                            // mount scroll event listener
+                                            mountListeners()
                                         }, 1250)
                                     }
                                 )
@@ -206,4 +235,6 @@ const VH = window.innerHeight
             }
         )
     })
+
+    console.log(panels.forEach((panel) => console.log(panel.Ypos)))
 })()

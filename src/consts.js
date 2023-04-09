@@ -2,6 +2,7 @@
 export const STAGGER_DURATION = 238.74
 export const DURATION_L = 1250
 
+/* DOM elements */
 export const menuLines = document.querySelectorAll(".cluster")
 export const animatedLines = document.querySelectorAll(".animate")
 export const letters = document.querySelectorAll(".letter")

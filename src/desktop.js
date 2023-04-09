@@ -332,6 +332,7 @@ import {
                                             document
                                                 .querySelector(".overlay")
                                                 .remove()
+                                            // mount event listeners
                                             mountListeners()
                                         }, 1250)
                                     }
