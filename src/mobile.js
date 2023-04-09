@@ -88,9 +88,13 @@ import { isOnMobile } from "./root"
         if (curY > prevY) {
             nav.style.opacity = "0"
             nav.style.pointerEvents = "none"
+            up.style.opacity = "0"
+            up.pointerEvents = "none"
         } else {
             nav.style.opacity = "1"
             nav.style.pointerEvents = "all"
+            up.style.opacity = "1"
+            up.pointerEvents = "all"
         }
         prevY = curY
 
@@ -112,7 +116,17 @@ import { isOnMobile } from "./root"
         window.addEventListener("beforeunload", () => {
             window.removeEventListener("scroll", scrollHandler)
         })
+
+        up.addEventListener("click", () => {
+            window.scrollTo(0, 0, { behavior: "smooth" })
+        })
     }
+
+    // create overlay element to scroll back to top
+    const up = document.createElement("img")
+    up.src = "OVERLAY_UP.svg"
+    up.classList.add("up")
+    document.body.appendChild(up)
 
     // initial setup
     window.scrollTo(0, 0)
@@ -234,6 +248,4 @@ import { isOnMobile } from "./root"
             }
         )
     })
-
-    console.log(panels.forEach((panel) => console.log(panel.Ypos)))
 })()
