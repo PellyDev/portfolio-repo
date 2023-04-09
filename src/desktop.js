@@ -318,7 +318,7 @@ import {
                                             "0 0"
                                         )
                                         landing.remove()
-                                        // show scrollbar, enable scrolling, and display scroll CTA
+                                        // display scroll CTA
                                         setTimeout(() => {
                                             scrollCTA.style.setProperty(
                                                 "opacity",
@@ -332,11 +332,6 @@ import {
                                             document
                                                 .querySelector(".overlay")
                                                 .remove()
-                                            // enable scrolling
-                                            document.body.style.setProperty(
-                                                "overflowY",
-                                                "auto"
-                                            )
                                             mountListeners()
                                         }, 1250)
                                     }

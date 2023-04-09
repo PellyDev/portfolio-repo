@@ -9,4 +9,4 @@ function getUA() {
     return !!type
 }
 
-export let isOnMobile = getUA()
+export const isOnMobile = getUA()
