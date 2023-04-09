@@ -123,6 +123,7 @@ section {
     align-items: center;
     min-width: 100vw;
     min-height: 100vh;
+    min-height: 100svh;
     color: var(--main-clr-1k);
 }
 
@@ -135,7 +136,9 @@ section {
     text-align: start;
     font-family: "Mabry Pro", sans-serif;
     font-size: 2rem;
+    margin-top: 10vh;
     margin-top: 10svh;
+    margin-bottom: 5vh;
     margin-bottom: 5svh;
     transition: all var(--duration-l) var(--timing-bez);
 }
@@ -407,6 +410,7 @@ section {
 
 .fixed.page-nav {
     top: 90vh;
+    top: 90svh;
     border-right: none;
     padding-right: 0;
     opacity: 0%;
@@ -435,6 +439,7 @@ section {
 
 .fixed.email {
     top: 90vh;
+    top: 90svh;
     right: 0;
     transform: rotate(-90deg);
     letter-spacing: 2px;
