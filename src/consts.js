@@ -1,6 +1,8 @@
+import { isOnMobile } from "./root"
+
 /* css variables */
 export const STAGGER_DURATION = 238.74
-export const DURATION_L = 1250
+export const DURATION_L = isOnMobile ? 610 : 1250
 
 /* DOM elements */
 export const menuLines = document.querySelectorAll(".cluster")

@@ -20,6 +20,7 @@ import {
     bio,
     main,
     pageNav,
+    DURATION_L,
 } from "./consts"
 import { isOnMobile } from "./root"
 
@@ -136,6 +137,8 @@ import { isOnMobile } from "./root"
     // initial setup
     window.scrollTo(0, 0)
     youtube.node.style.minHeight = "1300px"
+    document.documentElement.style.setProperty("--duration-l", `610ms`)
+    bio.node.style.setProperty("height", "105vh")
     getPanelPos(panels)
     checkScrollState(0, () => {
         document.querySelector(".j-left").classList.add("animate")
@@ -241,7 +244,7 @@ import { isOnMobile } from "./root"
                                             )
                                             // mount scroll event listener
                                             mountListeners()
-                                        }, 1250)
+                                        }, DURATION_L)
                                     }
                                 )
                             }

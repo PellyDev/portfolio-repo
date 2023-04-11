@@ -117,15 +117,15 @@ a {
 /* basic panel styles */
 
 section {
-    overflow-x: hidden;
-    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--main-clr-1k);
     width: 100%;
     min-height: 100vh;
     min-height: 100svh;
-    color: var(--main-clr-1k);
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .headline {
@@ -625,7 +625,6 @@ section {
 }
 
 /* BIO */
-
 .bio-container .text {
     transition: all var(--duration-l) var(--stagger-duration);
 }
@@ -1103,8 +1102,8 @@ section {
     min-width: calc(
         10% - (80% * 0.025)
     ); /* 10% space on each side of the slider; the gap between each item is 2.5% of the slider width (which is 80% of total vp) */
-    height: 100%;
     z-index: 1;
+    height: 100%;
     opacity: 0%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(0.5rem);
