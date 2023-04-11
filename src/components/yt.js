@@ -26,11 +26,64 @@ function getVids() {
 
 function generateMobileVids(json) {
     document.querySelector(".yt-container.desktop").remove()
+    const parent = document.querySelector(".yt-container.mobile")
+
+    json.items.forEach((vid, idx) => {
+        // only render 3 vids
+        if (idx > 2) return
+        const { title } = vid.snippet
+        const { url: thumnbnail } = vid.snippet.thumbnails.maxres
+        const { videoId } = vid.snippet.resourceId
+        const temp = document
+            .querySelector(".yt-container.mobile template")
+            .content.cloneNode(true)
+        const el = temp.querySelector(".video-container")
+        el.querySelector("img").src = thumnbnail
+        el.querySelector("a").href = WATCH_BASE_URL + videoId
+        el.querySelector(".title").innerText = title
+        el.classList.add("inactive")
+        el.style.setProperty(
+            "transition-delay",
+            `${staggerFactor * STAGGER_DURATION}ms`
+        )
+        youtube.children.push(el)
+        parent.appendChild(el)
+        ++staggerFactor
+    })
 }
+
 function generateDesktopVids(json) {
     document.querySelector(".yt-container.mobile").remove()
     const parent = document.querySelector(".slider")
-    const template = document.querySelector(".slider template")
+
+    const slider = document.querySelector(".slider")
+    const leftArrow = document.querySelector(".arrow.left")
+    const rightArrow = document.querySelector(".arrow.right")
+
+    leftArrow.addEventListener("click", () => {
+        const style = getComputedStyle(slider)
+        let scrollIdx = Number(style.getPropertyValue("--scroll-index"))
+        if (scrollIdx === 0) {
+            scrollIdx = (length - 2) / 2
+        } else {
+            // ceil in case we have a .5 max scroll idx
+            scrollIdx = Math.ceil(scrollIdx - 1)
+        }
+        slider.style.setProperty("--scroll-index", `${scrollIdx}`)
+    })
+
+    rightArrow.addEventListener("click", () => {
+        const style = getComputedStyle(slider)
+        let scrollIdx = Number(style.getPropertyValue("--scroll-index"))
+        if (scrollIdx < (length - 2) / 2) {
+            ++scrollIdx
+            scrollIdx =
+                scrollIdx > (length - 2) / 2 ? (length - 2) / 2 : scrollIdx
+        } else {
+            scrollIdx = 0
+        }
+        slider.style.setProperty("--scroll-index", `${scrollIdx}`)
+    })
 
     json.items.forEach((vid) => {
         const { title, publishedAt: date } = vid.snippet
@@ -39,7 +92,9 @@ function generateDesktopVids(json) {
         const dateFormatted = new Intl.DateTimeFormat("de-DE").format(
             new Date(date.substring(0, 10))
         )
-        const el = template.content.cloneNode(true)
+        const el = document
+            .querySelector(".slider template")
+            .content.cloneNode(true)
         const elRoot = el.querySelector(".video-container")
         elRoot.querySelector("img").src = thumnbnail
         elRoot.querySelector("a").href = WATCH_BASE_URL + videoId
@@ -55,32 +110,5 @@ function generateDesktopVids(json) {
         ++staggerFactor
     })
 }
-const slider = document.querySelector(".slider")
-const leftArrow = document.querySelector(".arrow.left")
-const rightArrow = document.querySelector(".arrow.right")
-
-leftArrow.addEventListener("click", () => {
-    const style = getComputedStyle(slider)
-    let scrollIdx = Number(style.getPropertyValue("--scroll-index"))
-    if (scrollIdx === 0) {
-        scrollIdx = (length - 2) / 2
-    } else {
-        // ceil in case we have a .5 max scroll idx
-        scrollIdx = Math.ceil(scrollIdx - 1)
-    }
-    slider.style.setProperty("--scroll-index", `${scrollIdx}`)
-})
-
-rightArrow.addEventListener("click", () => {
-    const style = getComputedStyle(slider)
-    let scrollIdx = Number(style.getPropertyValue("--scroll-index"))
-    if (scrollIdx < (length - 2) / 2) {
-        ++scrollIdx
-        scrollIdx = scrollIdx > (length - 2) / 2 ? (length - 2) / 2 : scrollIdx
-    } else {
-        scrollIdx = 0
-    }
-    slider.style.setProperty("--scroll-index", `${scrollIdx}`)
-})
 
 getVids()

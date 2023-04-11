@@ -135,6 +135,7 @@ import { isOnMobile } from "./root"
 
     // initial setup
     window.scrollTo(0, 0)
+    youtube.node.style.minHeight = "1300px"
     getPanelPos(panels)
     checkScrollState(0, () => {
         document.querySelector(".j-left").classList.add("animate")
@@ -233,10 +234,7 @@ import { isOnMobile } from "./root"
                                                 "overflow",
                                                 "auto"
                                             )
-                                            document.body.style.setProperty(
-                                                "overflow-x",
-                                                "hidden"
-                                            )
+
                                             nav.style.setProperty(
                                                 "transition",
                                                 "opacity var(--duration-m) ease-in-out"
