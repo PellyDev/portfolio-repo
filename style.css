@@ -1343,10 +1343,8 @@ section {
     }
 
     .project-container {
-        width: auto;
-        max-width: auto;
+        width: 80%;
         height: 61.8%;
-        aspect-ratio: 9 / 16;
     }
 
     .project-container .top {
@@ -1405,6 +1403,6 @@ section {
     }
 
     .desc p {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 }
