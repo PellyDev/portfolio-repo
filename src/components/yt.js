@@ -1,4 +1,5 @@
 import { youtube, STAGGER_DURATION } from "../consts"
+import { isOnMobile } from "../root"
 // API key has been restricted so it doesn't need to be obfuscated or stored in a .env file
 const WATCH_BASE_URL = "https://www.youtube.com/watch?v="
 const API_BASE_URL =
@@ -14,12 +15,20 @@ function getVids() {
     fetch(API_BASE_URL + API_KEY)
         .then((res) => res.json())
         .then((data) => {
-            generateVids(data)
             length = data.items.length
+            if (isOnMobile) {
+                generateMobileVids(data)
+            } else {
+                generateDesktopVids(data)
+            }
         })
 }
 
-function generateVids(json) {
+function generateMobileVids(json) {
+    document.querySelector(".yt-container.desktop").remove()
+}
+function generateDesktopVids(json) {
+    document.querySelector(".yt-container.mobile").remove()
     const parent = document.querySelector(".slider")
     const template = document.querySelector(".slider template")
 

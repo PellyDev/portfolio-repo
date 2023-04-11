@@ -356,28 +356,30 @@ import {
         }, 50)
     })
 
+    /* let hoveredLetters */
     // apply classes and change styles based on hover state of main menu
     animatedLines.forEach((line) => {
         line.addEventListener("mouseenter", () => {
             // change classes on hover to speed up animation time
             letters.forEach((letter) => {
-                letter.className = "letter letter-enter"
+                letter.classList.remove("letter-leave")
+                letter.classList.add("letter-enter")
             })
             if (!isScrolling) {
                 // nav items left
                 navItems.forEach((item) => {
-                    item.style.setProperty("color", "var(--border-100)")
-                    item.style.setProperty("stroke", "var(--border-100)")
+                    item.style.setProperty("color", "var(--white-100)")
+                    item.style.setProperty("stroke", "var(--white-100)")
                     item.style.setProperty("filter", "blur(0.5rem)")
                 })
                 // overlay elements on the bottom
                 fixedEls.forEach((el) => {
                     el.style.setProperty("filter", "blur(0.5rem)")
-                    el.style.setProperty("fill", "var(--border-100)")
+                    el.style.setProperty("fill", "var(--white-100)")
                 })
                 // nav logo right
                 navLogo.style.setProperty("filter", "blur(0.5rem)")
-                navLogo.style.setProperty("fill", "var(--border-100)")
+                navLogo.style.setProperty("fill", "var(--white-100)")
             }
 
             // randomize "levitating" animation durations
@@ -394,13 +396,14 @@ import {
                     getRand(5000, 10001) + "ms"
                 )
             })
-            scrollCTA.style.setProperty("color", "var(--border-100)")
+            scrollCTA.style.setProperty("color", "var(--white-100)")
             scrollCTA.style.setProperty("filter", "blur(0.5rem)")
         })
         // change classes on mouse leave to slow down animation time
         line.addEventListener("mouseleave", () => {
             letters.forEach((letter) => {
-                letter.className = "letter letter-leave"
+                letter.classList.remove("letter-enter")
+                letter.classList.add("letter-leave")
             })
             navItems.forEach((item) => {
                 item.style.removeProperty("color")

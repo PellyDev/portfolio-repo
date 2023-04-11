@@ -18,6 +18,7 @@ export const fixedElsLeft = document.querySelectorAll(".fixed.left")
 export const fixedElsRight = document.querySelector(".fixed.right")
 export const landing = document.querySelector("#landing")
 export const landingLogo = document.querySelector("#landing svg")
+export const landingTag = document.querySelector("#landing p")
 export const navLogo = document.querySelector(".nav svg")
 
 /* panels */
@@ -167,7 +168,7 @@ export const youtube = {
     children: [
         document.querySelector("#youtube .headline"),
         document.querySelector("#youtube .text"),
-        document.querySelector("#youtube .yt-container"),
+        document.querySelector("#youtube .yt-container.desktop"),
     ],
     Ypos: 0,
     hasAnimated: false,

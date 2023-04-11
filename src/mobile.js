@@ -128,6 +128,11 @@ import { isOnMobile } from "./root"
     up.classList.add("up")
     document.body.appendChild(up)
 
+    // remove desktop overlay
+    document
+        .querySelectorAll(".fixed")
+        .forEach((el) => (el.style.display = "none"))
+
     // initial setup
     window.scrollTo(0, 0)
     getPanelPos(panels)
