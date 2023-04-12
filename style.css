@@ -228,8 +228,8 @@ section {
     font-family: "Mabry Pro", sans-serif;
     line-height: 100%;
     letter-spacing: 5px;
-    margin-top: 15vh;
-    margin-top: 15svh;
+    margin-top: 10vh;
+    margin-top: 10svh;
 }
 
 .top-right {
@@ -423,8 +423,8 @@ section {
         scale var(--duration-l) var(--timing-bez),
         filter var(--duration-s) ease-in-out;
     user-select: none;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 3vh;
+    margin-top: 3svh;
     stroke: var(--main-clr-1k);
     scale: 0.9;
     opacity: 0;
@@ -1299,6 +1299,10 @@ section {
     .yt-container {
         margin-top: 15%;
     }
+
+    .fixed:not(.page-nav) {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1326,6 +1330,11 @@ section {
     .headline img,
     .headline svg {
         scale: 0.75;
+    }
+
+    .scroll-CTA {
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     #bio p {
