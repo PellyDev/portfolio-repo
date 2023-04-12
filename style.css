@@ -1366,7 +1366,7 @@ section {
     }
 
     .desc p {
-        font-size: calc(1.75vw + 0.44rem);
+        font-size: calc(1.5vw + 0.44rem);
     }
 
     .top .logo-container {

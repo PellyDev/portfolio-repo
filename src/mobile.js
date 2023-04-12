@@ -101,7 +101,7 @@ import { isOnMobile } from "./root"
 
         // show each panel when it reached 1/2 of the viewport height
         panels.forEach((panel, idx) => {
-            if (scrollY > panel.Ypos - VH * 0.5 && !panel.hasAnimated) {
+            if (scrollY > panel.Ypos - VH * 0.8 && !panel.hasAnimated) {
                 animateIntoView(idx)
             }
         })
