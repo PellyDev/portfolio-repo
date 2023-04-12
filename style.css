@@ -769,7 +769,8 @@ section {
     --offset: 10%; /* offset for the linear-gradient blur -> ::before element */
     position: relative;
     max-width: 1200px;
-    width: 80%;
+    height: 60vh;
+    height: 60svh;
     aspect-ratio: 16 / 9;
     transition: all var(--duration-l) calc(var(--duration-l) * 0.5)
         var(--timing-bez);
@@ -973,7 +974,7 @@ section {
 
 .desc p {
     width: 80%;
-    font-size: 1.5rem;
+    font-size: calc(0.75vw + 0.5rem);
 
     text-align: justify;
     color: var(--main-clr);
@@ -1355,6 +1356,10 @@ section {
         top: 85%;
     }
 
+    .desc p {
+        font-size: calc(1.75vw + 0.44rem);
+    }
+
     .top .logo-container {
         gap: 0.5rem;
     }
@@ -1401,7 +1406,7 @@ section {
         display: none;
     }
 
-    .desc p {
+    /* .desc p {
         font-size: 0.85rem;
-    }
+    } */
 }
