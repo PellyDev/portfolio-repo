@@ -1,4 +1,4 @@
-import { DURATION_M } from "./consts"
+import { DURATION_M } from "../consts"
 
 class Project {
     constructor(node) {

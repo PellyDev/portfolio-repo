@@ -10,11 +10,14 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="module" src="src/main.js" defer></script>
-        <script type="module" src="src/projects.js" defer></script>
-        <script type="module" src="src/yt.js" defer></script>
-        <title>Pelly Dev</title>
+        <script type="module" src="src/root.js" defer></script>
+        <script type="module" src="src/desktop.js" defer></script>
+        <script type="module" src="src/mobile.js" defer></script>
+        <script type="module" src="src/components/projects.js" defer></script>
+        <script type="module" src="src/components/yt.js" defer></script>
+        <title>JanDev</title>
     </head>
     <body>
         <div class="overlay"></div>
@@ -183,14 +186,15 @@
         </section>
         <section id="bio">
             <div class="headline inactive">
-                <h1>A few words about me.</h1>
+                <h1>A few words <span class="accent">about me.</span></h1>
                 <img src="/WAVING_HAND.svg" alt="" />
             </div>
             <div class="bio-container">
                 <div class="text inactive">
                     <p>
-                        Hi there! My name is Jan and I’m a passionate front end
-                        developer based in Germany.
+                        Hi there! My name is Jan and I’m a passionate
+                        <span class="accent">front end developer</span> based in
+                        Germany.
                     </p>
                     <p>
                         I love creating all things web and building creative
@@ -205,13 +209,13 @@
                     </p>
                     <p>
                         Having worked with a
-                        <span>variety of different frameworks</span> and
-                        gathering
-                        <span
-                            >hands-on experience with the latest and most
-                            popular technologies in the field</span
-                        >, I am excited to take my passion to a professional
-                        level and work as a full-time front end developer.
+                        <span class="accent"
+                            >variety of different frameworks</span
+                        >
+                        and gathering hands-on experience with the latest and
+                        most popular technologies in the field, I am excited to
+                        take my passion to a professional level and work as a
+                        full-time front end developer.
                     </p>
                 </div>
                 <img
@@ -223,7 +227,7 @@
         </section>
         <section id="stack">
             <div class="headline inactive">
-                <h1>Technologies I love.</h1>
+                <h1><span class="accent">Technologies</span> I love.</h1>
                 <img src="/TECH_STACK.svg" alt="" />
             </div>
             <div class="tech-stack">
@@ -263,59 +267,38 @@
         </section>
         <section id="projects">
             <div class="headline inactive">
-                <h1>Projects I've worked on.</h1>
+                <h1><span class="accent">Projects</span> I've worked on.</h1>
                 <svg
-                    width="71"
-                    height="56"
-                    viewBox="0 0 71 56"
+                    width="58"
+                    height="40"
+                    viewBox="0 0 58 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    <g id="Group 4">
-                        <g id="color">
-                            <path
-                                id="Vector"
-                                d="M65.6392 0.840942H4.54626C2.33713 0.840942 0.546265 2.63181 0.546265 4.84095V51.8849C0.546265 54.0941 2.33712 55.8849 4.54626 55.8849H65.6392C67.8483 55.8849 69.6392 54.0941 69.6392 51.8849V4.84094C69.6392 2.6318 67.8483 0.840942 65.6392 0.840942Z"
-                                fill="#D9D9D9"
-                            />
-                        </g>
-                        <g id="line">
-                            <path
-                                id="Vector_2"
-                                d="M7.90977 1.38818V7.43381H0.546265H69.6392"
-                                stroke="black"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <g id="inside">
-                                <path
-                                    id="bracket right"
-                                    d="M43.6033 39.7655L53.1756 30.1932M43.6033 20.5275L53.1756 30.0997"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    id="slash"
-                                    d="M38.1101 17.5188L30.6826 42.5273"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    id="bracket-left"
-                                    d="M25.1893 20.6174L15.6171 30.1897M25.1893 39.8558L15.6171 30.2836"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </g>
-                        </g>
-                    </g>
+                    <path
+                        d="M41.801 33.6384L55.4143 20.0251M41.801 6.27881L55.4143 19.8921"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M33.9889 2L23.4258 37.566"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M15.6133 6.4068L2 20.0201M15.6133 33.7669L2 20.1536"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
                 </svg>
             </div>
             <div data-direction="left" class="project-container inactive">
@@ -329,9 +312,11 @@
                     <ul class="stack inactive animatable">
                         <li>React</li>
                         <span class="pipe">&#124;</span>
-                        <li>TypeScript</li>
+                        <li>React Router</li>
                         <span class="pipe">&#124;</span>
+                        <li>TypeScript</li>
                         <li>Tailwind</li>
+                        <span class="pipe">&#124;</span>
                         <li>GSAP</li>
                         <span class="pipe">&#124;</span>
                         <li>Midjourney</li>
@@ -358,7 +343,7 @@
                                 Design.
                             </p>
                             <button class="flush inactive animatable">
-                                <img src="PROJECTS_BACK.svg" alt="" />
+                                <img src="PROJECTS_BACK2.svg" alt="" />
                                 <span>Take me back</span>
                             </button>
                         </div>
@@ -369,7 +354,7 @@
                         class="icon-container inactive"
                         data-direction="left"
                         target="_blank"
-                        href=""
+                        href="https://github.com/PellyDev/kittify-repo"
                     >
                         <img class="icon" src="PROJECTS_GITHUB.svg" alt="" />
                         <span class="text">View on GitHub</span>
@@ -378,7 +363,7 @@
                         class="icon-container inactive"
                         data-direction="right"
                         target="_blank"
-                        href=""
+                        href="http://www.jan-kittify.netlify.app"
                     >
                         <img class="icon" src="PROJECTS_OPEN.svg" alt="" />
                         <span class="text">Experience Live</span>
@@ -389,59 +374,38 @@
         </section>
         <section id="project2">
             <div class="headline inactive">
-                <h1>Projects I've worked on.</h1>
+                <h1><span class="accent">Projects</span> I've worked on.</h1>
                 <svg
-                    width="71"
-                    height="56"
-                    viewBox="0 0 71 56"
+                    width="58"
+                    height="40"
+                    viewBox="0 0 58 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    <g id="Group 4">
-                        <g id="color">
-                            <path
-                                id="Vector"
-                                d="M65.6392 0.840942H4.54626C2.33713 0.840942 0.546265 2.63181 0.546265 4.84095V51.8849C0.546265 54.0941 2.33712 55.8849 4.54626 55.8849H65.6392C67.8483 55.8849 69.6392 54.0941 69.6392 51.8849V4.84094C69.6392 2.6318 67.8483 0.840942 65.6392 0.840942Z"
-                                fill="#D9D9D9"
-                            />
-                        </g>
-                        <g id="line">
-                            <path
-                                id="Vector_2"
-                                d="M7.90977 1.38818V7.43381H0.546265H69.6392"
-                                stroke="black"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <g id="inside">
-                                <path
-                                    id="bracket right"
-                                    d="M43.6033 39.7655L53.1756 30.1932M43.6033 20.5275L53.1756 30.0997"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    id="slash"
-                                    d="M38.1101 17.5188L30.6826 42.5273"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    id="bracket-left"
-                                    d="M25.1893 20.6174L15.6171 30.1897M25.1893 39.8558L15.6171 30.2836"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </g>
-                        </g>
-                    </g>
+                    <path
+                        d="M41.801 33.6384L55.4143 20.0251M41.801 6.27881L55.4143 19.8921"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M33.9889 2L23.4258 37.566"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M15.6133 6.4068L2 20.0201M15.6133 33.7669L2 20.1536"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
                 </svg>
             </div>
             <div data-direction="right" class="project-container inactive">
@@ -478,7 +442,7 @@
                                 the UI.
                             </p>
                             <button class="flush inactive animatable">
-                                <img src="PROJECTS_BACK.svg" alt="" />
+                                <img src="PROJECTS_BACK2.svg" alt="" />
                                 <span>Take me back</span>
                             </button>
                         </div>
@@ -489,7 +453,7 @@
                         class="icon-container inactive"
                         data-direction="left"
                         target="_blank"
-                        href=""
+                        href="https://github.com/PellyDev/dict-repo"
                     >
                         <img class="icon" src="PROJECTS_GITHUB.svg" alt="" />
                         <span class="text">View on GitHub</span>
@@ -498,7 +462,7 @@
                         class="icon-container inactive"
                         data-direction="right"
                         target="_blank"
-                        href=""
+                        href="https://jan-dict.netlify.app/"
                     >
                         <img class="icon" src="PROJECTS_OPEN.svg" alt="" />
                         <span class="text">Experience Live</span>
@@ -509,59 +473,38 @@
         </section>
         <section id="project3">
             <div class="headline inactive">
-                <h1>Projects I've worked on.</h1>
+                <h1><span class="accent">Projects</span> I've worked on.</h1>
                 <svg
-                    width="71"
-                    height="56"
-                    viewBox="0 0 71 56"
+                    width="58"
+                    height="40"
+                    viewBox="0 0 58 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    <g id="Group 4">
-                        <g id="color">
-                            <path
-                                id="Vector"
-                                d="M65.6392 0.840942H4.54626C2.33713 0.840942 0.546265 2.63181 0.546265 4.84095V51.8849C0.546265 54.0941 2.33712 55.8849 4.54626 55.8849H65.6392C67.8483 55.8849 69.6392 54.0941 69.6392 51.8849V4.84094C69.6392 2.6318 67.8483 0.840942 65.6392 0.840942Z"
-                                fill="#D9D9D9"
-                            />
-                        </g>
-                        <g id="line">
-                            <path
-                                id="Vector_2"
-                                d="M7.90977 1.38818V7.43381H0.546265H69.6392"
-                                stroke="black"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <g id="inside">
-                                <path
-                                    id="bracket right"
-                                    d="M43.6033 39.7655L53.1756 30.1932M43.6033 20.5275L53.1756 30.0997"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    id="slash"
-                                    d="M38.1101 17.5188L30.6826 42.5273"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    id="bracket-left"
-                                    d="M25.1893 20.6174L15.6171 30.1897M25.1893 39.8558L15.6171 30.2836"
-                                    stroke="black"
-                                    stroke-miterlimit="10"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </g>
-                        </g>
-                    </g>
+                    <path
+                        d="M41.801 33.6384L55.4143 20.0251M41.801 6.27881L55.4143 19.8921"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M33.9889 2L23.4258 37.566"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M15.6133 6.4068L2 20.0201M15.6133 33.7669L2 20.1536"
+                        stroke="#453D4B"
+                        stroke-width="4"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
                 </svg>
             </div>
             <div data-direction="left" class="project-container inactive">
@@ -570,9 +513,7 @@
                         <img src="PORT_LOGO.svg" alt="" />
                         <h2>jan.vision</h2>
                         <span class="pipe">&#124;</span>
-                        <p class="tagline">
-                            An interactive frontend portfolio.
-                        </p>
+                        <p class="tagline">A frontend portfolio.</p>
                     </div>
                     <ul class="stack inactive animatable">
                         <li>JavaScript</li>
@@ -586,7 +527,7 @@
                     <template>
                         <div class="desc">
                             <p class="test inactive animatable">
-                                A fully customized website with a unique design
+                                A web development portfolio with a unique design
                                 and interactive elements using nothing but the
                                 basics: HTML, CSS & JS. I have designed and
                                 implemented everything from scratch, including
@@ -598,10 +539,10 @@
                                 integrated the YouTube API to fetch videos from
                                 my channel and dynamically generate video-card
                                 components, utilizing a data-driven approach
-                                qsimilar to that of React.
+                                similar to that of React.
                             </p>
                             <button class="flush inactive animatable">
-                                <img src="PROJECTS_BACK.svg" alt="" />
+                                <img src="PROJECTS_BACK2.svg" alt="" />
                                 <span>Take me back</span>
                             </button>
                         </div>
@@ -612,19 +553,10 @@
                         class="icon-container inactive"
                         data-direction="left"
                         target="_blank"
-                        href=""
+                        href="https://github.com/PellyDev/portfolio-repo"
                     >
                         <img class="icon" src="PROJECTS_GITHUB.svg" alt="" />
                         <span class="text">View on GitHub</span>
-                    </a>
-                    <a
-                        class="icon-container inactive"
-                        data-direction="right"
-                        target="_blank"
-                        href=""
-                    >
-                        <img class="icon" src="PROJECTS_OPEN.svg" alt="" />
-                        <span class="text">Experience Live</span>
                     </a>
                 </div>
                 <img class="project-img" src="PORT.jpg" alt="" />
@@ -632,27 +564,29 @@
         </section>
         <section id="youtube">
             <div class="headline inactive">
-                <h1>Get to know me on YouTube.</h1>
+                <h1>Get to know me <span class="accent">on YouTube.</span></h1>
                 <svg
-                    width="75"
+                    width="69"
                     height="54"
-                    viewBox="0 0 75 54"
+                    viewBox="0 0 69 54"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                        d="M73.2001 8.67986C72.3403 5.44213 69.8073 2.89256 66.5904 2.02727C60.7602 0.454712 37.3812 0.454712 37.3812 0.454712C37.3812 0.454712 14.0024 0.454712 8.172 2.02727C4.95539 2.89256 2.42195 5.44213 1.56225 8.67986C-1.53188e-07 14.548 0 26.7915 0 26.7915C0 26.7915 -1.53188e-07 39.0348 1.56225 44.9035C2.42195 48.1408 4.95539 50.6904 8.172 51.5561C14.0024 53.1283 37.3812 53.1283 37.3812 53.1283C37.3812 53.1283 60.7602 53.1283 66.5904 51.5561C69.8073 50.6904 72.3403 48.1408 73.2001 44.9035C74.7625 39.0348 74.7625 26.7915 74.7625 26.7915C74.7625 26.7915 74.7625 14.548 73.2001 8.67986Z"
-                        fill="#EA5A47"
+                        d="M45.8773 26.6056C46.544 26.9905 46.544 27.9528 45.8773 28.3377L30.4811 37.2267C29.8144 37.6116 28.9811 37.1305 28.9811 36.3607L28.9811 18.5827C28.9811 17.8129 29.8144 17.3317 30.4811 17.7166L45.8773 26.6056Z"
+                        stroke="#453D4B"
+                        stroke-width="3"
+                        stroke-linejoin="round"
                     />
-                    <path
-                        d="M29.7351 37.9074L49.2753 26.7918L29.7351 15.6752V37.9074Z"
-                        fill="#D9D9D9"
-                    />
-                    <path
-                        d="M29.7351 37.9076L49.2753 26.792L29.7351 15.6753V37.9076Z"
-                        stroke="black"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
+                    <rect
+                        x="2"
+                        y="2.94336"
+                        width="65"
+                        height="49.0566"
+                        rx="12"
+                        stroke="#453D4B"
+                        stroke-opacity="0.5"
+                        stroke-width="4"
                         stroke-linejoin="round"
                     />
                 </svg>
@@ -661,7 +595,17 @@
                 On my YouTube channel I explain algorithms and talk all things
                 React, JavaScript, and web development.
             </p>
-            <div class="yt-container inactive">
+            <div class="yt-container mobile inactive">
+                <template>
+                    <div class="video-container">
+                        <a href="" target="_blank">
+                            <img src="" alt="" />
+                        </a>
+                        <p class="title"></p>
+                    </div>
+                </template>
+            </div>
+            <div class="yt-container desktop inactive">
                 <div class="container-overlay left">
                     <img src="/LEFT_ARROW.svg" alt="" class="arrow left" />
                 </div>
@@ -724,11 +668,16 @@
             >
                 <path d="M0 1H74.1935H150" />
             </svg>
-            <img src="SOCIALS_GITHUB.svg" class="socials" alt="" />
+            <a href="https://www.github.com/PellyDev" target="_blank">
+                <img src="SOCIALS_GITHUB.svg" class="socials" alt="" />
+            </a>
             <img src="DIAMOND.svg" class="diamond" alt="" />
-            <img src="SOCIALS_LINKEDIN.svg" class="socials" alt="" />
-            <img src="DIAMOND.svg" class="diamond" alt="" />
-            <img src="SOCIALS_TWITTER.svg" class="socials" alt="" />
+            <a
+                href="https://www.linkedin.com/in/jan-peltner-622216272/"
+                target="_blank"
+            >
+                <img src="SOCIALS_LINKEDIN.svg" class="socials" alt="" />
+            </a>
             <img src="DIAMOND.svg" class="diamond" alt="" />
             <a href="https://www.youtube.com/@pelly5742" target="_blank">
                 <img src="SOCIALS_YOUTUBE.svg" class="socials" alt="" />

@@ -1,8 +1,11 @@
+import { isOnMobile } from "./root"
+
 /* css variables */
 export const STAGGER_DURATION = 238.74
-export const DURATION_L = 1250
+export const DURATION_L = isOnMobile ? 610 : 1250
 export const DURATION_M = 386.28
 
+/* DOM elements */
 export const menuLines = document.querySelectorAll(".cluster")
 export const animatedLines = document.querySelectorAll(".animate")
 export const letters = document.querySelectorAll(".letter")
@@ -18,6 +21,7 @@ export const fixedElsLeft = document.querySelectorAll(".fixed.left")
 export const fixedElsRight = document.querySelector(".fixed.right")
 export const landing = document.querySelector("#landing")
 export const landingLogo = document.querySelector("#landing svg")
+export const landingTag = document.querySelector("#landing p")
 export const navLogo = document.querySelector(".nav svg")
 
 /* panels */
@@ -140,9 +144,6 @@ export const project3 = {
         document.querySelector(
             "#project3 .bottom .icon-container[data-direction='left']"
         ),
-        document.querySelector(
-            "#project3 .bottom .icon-container[data-direction='right']"
-        ),
     ],
     cb: function () {
         this.children.forEach((child, idx) => {
@@ -167,7 +168,7 @@ export const youtube = {
     children: [
         document.querySelector("#youtube .headline"),
         document.querySelector("#youtube .text"),
-        document.querySelector("#youtube .yt-container"),
+        document.querySelector("#youtube .yt-container.desktop"),
     ],
     Ypos: 0,
     hasAnimated: false,
