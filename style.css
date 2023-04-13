@@ -72,11 +72,11 @@ ________________________________________________________________________________
 
 @font-face {
     font-family: "Mabry Pro";
-    src: url("MabryPro-Medium.eot");
-    src: url("MabryPro-Medium.eot?#iefix") format("embedded-opentype"),
-        url("MabryPro-Medium.woff2") format("woff2"),
-        url("MabryPro-Medium.woff") format("woff"),
-        url("MabryPro-Medium.ttf") format("truetype");
+    src: url("/MabryPro-Medium.eot");
+    src: url("/MabryPro-Medium.eot?#iefix") format("embedded-opentype"),
+        url("/MabryPro-Medium.woff2") format("woff2"),
+        url("/MabryPro-Medium.woff") format("woff"),
+        url("/MabryPro-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
