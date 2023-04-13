@@ -143,9 +143,6 @@ export const project3 = {
         document.querySelector(
             "#project3 .bottom .icon-container[data-direction='left']"
         ),
-        document.querySelector(
-            "#project3 .bottom .icon-container[data-direction='right']"
-        ),
     ],
     cb: function () {
         this.children.forEach((child, idx) => {
