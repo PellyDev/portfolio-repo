@@ -138,7 +138,7 @@ import { isOnMobile } from "./root"
     window.scrollTo(0, 0)
     youtube.node.style.minHeight = "1300px"
     document.documentElement.style.setProperty("--duration-l", `610ms`)
-    bio.node.style.setProperty("min-height", "105svh")
+    bio.node.style.setProperty("min-height", "108svh")
     getPanelPos(panels)
     checkScrollState(0, () => {
         document.querySelector(".j-left").classList.add("animate")
