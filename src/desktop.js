@@ -356,7 +356,6 @@ import {
         }, 50)
     })
 
-    /* let hoveredLetters */
     // apply classes and change styles based on hover state of main menu
     animatedLines.forEach((line) => {
         line.addEventListener("mouseenter", () => {
